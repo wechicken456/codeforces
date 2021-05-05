@@ -52,7 +52,7 @@ void solve(int n){
   int new_n;
 
   while (n >= 1){
-    for ( it = m.rbegin(); it->second > n && it != m.rend(); it++){}
+    it = m.rbegin();   
     new_n = it->second;			
     for (i = new_n; i <= n; i++ ){
       cout << arr[i] << " ";
