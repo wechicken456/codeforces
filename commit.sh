@@ -1,5 +1,5 @@
 
-$file_to_compile = $1
+$file_to_compile = < $1
 $output = ${file_to_compile/.cpp}
 clang++ -std=c++17 -o $output $file_to_compile
 git add .
