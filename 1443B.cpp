@@ -19,7 +19,8 @@ void solve(){
 	cin >> a >> b;
 	string bombs;
 	cin >> bombs;
-	cout << bombs.count('1') << "\n";
+	bitset<bombs.length()>s(bombs);
+	cout << s.count('1') << "\n";
 }
 
 int main(){
