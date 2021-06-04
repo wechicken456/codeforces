@@ -28,6 +28,7 @@ void solve(){
 		int diff = b[i+1] - b[i] - 1;
 		if (diff > 2*k) {
 			int m = (diff + 1) / k;
+			cout << "m: " << m << "\n";
 			while (m*k + m -1 > diff) m--;
 			answer += m - 1;
 		}	
