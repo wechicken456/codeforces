@@ -12,9 +12,22 @@ typedef unsigned long long ll;
 using namespace std;
 
 void solve(){
-	ll a,b, n, m;
-	scanf("%lld%lld%lld%lld", &a, &b, &n, &m);
-	cout << a << b << n << m;
+	int n,k;
+	scanf("%d%d", &n, &k);
+	string s;
+	cin >> s;
+	int answer = 0;
+	vector<int>b;
+	b.push_back(0);
+	for (int i = 0 ; i < s.length();i ++){
+		if (s[i] == '1') b.push_back(i);
+	}
+	b.push_back(n-1);
+	for (int i = 0; i < b.size()-1; i++){
+		int diff = b[i+1] - b[i];
+		if (diff > 2*k) answer += (diff+1) / k - 2;
+	}
+	cout << answer << "\n";
 }	
 
 
