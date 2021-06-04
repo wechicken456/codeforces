@@ -31,7 +31,7 @@ void solve(){
 	}
 	else 
 	for (auto &i : d){
-		if (i.second > answer) answer = i.second;
+		if (i.second + count > answer) answer = i.second + count;
 	}
 	cout << answer << "\n";
 
