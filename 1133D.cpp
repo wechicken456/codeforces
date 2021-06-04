@@ -22,6 +22,7 @@ void solve(){
 		else if (a[i] == 0 && b[i] == 0) count++;
 		else {
 			double temp = (double)-b[i]/a[i];
+			cout << temp << "\n";
 			d[temp]++;
 		}
 	}
