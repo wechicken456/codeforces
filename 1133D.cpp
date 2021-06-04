@@ -18,7 +18,7 @@ void solve(){
 	map<double,long>d;
 	for (int i = 0 ; i < n; i++){
 		double temp = (double)-b[i]/a[i];
-		cout << temp << " ";
+		//cout << temp << " ";
 		d[temp]++;
 	}
 	int answer = 0;
