@@ -22,6 +22,7 @@ void solve(){
 	}
 	int answer = 0;
 	for (auto &i : d){
+		cout << i.first << " " << i.second << "\n";
 		if (i.second > answer) answer = i.second;
 	}
 	cout << answer << "\n";
