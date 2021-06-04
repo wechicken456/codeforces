@@ -38,7 +38,10 @@ void solve(){
 			check = false;
 		}
 	}
-	if (low.size() == 1){
+	if (low.size() == 0){
+		answer = 0;
+	}
+	else if (low.size() == 1){
 		answer = a;
 	}
 	else {
