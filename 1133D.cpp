@@ -3,6 +3,7 @@
 #include<iostream>
 #include<map>
 #include<vector>
+#include<bits/stdc++.h>
 using namespace std;
 
 void solve(){
@@ -26,8 +27,8 @@ void solve(){
 			b[i] /= g;
 			a[i] /= g;
 			if (a[i] < 0 ) {
-				a *= -1;
-				b *= -1;
+				a[i] *= -1;
+				b[i] *= -1;
 			}
 			d[{-b[i], a[i]}]++;
 		}
