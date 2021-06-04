@@ -16,7 +16,7 @@ using namespace std;
 
 void solve(){
 	int a, b, answer = 0;
-	scanf("%d%d", &a, &b);
+	scanf("%d%d\n", &a, &b);
 	string bombs;
 	cin >> bombs;
 	//map<int , int> segments ;
@@ -61,7 +61,7 @@ int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	int T;
-	scanf("%d", &T);
+	scanf("%d\n", &T);
 	while (T--){
 		solve();
 	}
