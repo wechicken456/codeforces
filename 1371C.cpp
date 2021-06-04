@@ -13,7 +13,7 @@ using namespace std;
 
 void solve(){
 	ll a,b, n, m;
-	scanf("%lld%lld%lld%lld\n", &a, &b, &n, &m);
+	scanf("%lld%lld%lld%lld", &a, &b, &n, &m);
 	cout << a << b << n << m;
 }	
 
