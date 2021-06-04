@@ -16,13 +16,12 @@ using namespace std;
 
 void solve(){
 	int a, b, answer = 0;
-	cin >> a >> b;
+	scanf("%d%d", &a, &b);
 	string bombs;
 	cin >> bombs;
 	//map<int , int> segments ;
 	vector<int>low;
 	vector<int>high;
-	int count=0;
 	bool check = false;
 	for (int i = 0 ; i < bombs.length(); i++){
 		if (bombs[i] == '1' && check == false){
@@ -45,12 +44,9 @@ void solve(){
 		answer = a;
 	}
 	else {
-		vector<bool>c;
-		check = false;
 		for (int i = 0; i < low.size()-1;i ++){
 			if (a + b*(low[i+1] - high[i] -1) <= 2*a){
 				answer += b*(low[i+1] - high[i] - 1);
-				check = true;
 			}
 			else {
 				answer += a;
@@ -65,7 +61,7 @@ int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	int T;
-	cin >> T;
+	scanf("%d", &T);
 	while (T--){
 		solve();
 	}
