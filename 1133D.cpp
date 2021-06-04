@@ -13,7 +13,7 @@ void solve(){
 		scanf("%lld", &a[i]);
 	}
 	for (int i = 0 ; i < n; i++){
-		scanf("%lld", &a[i]);
+		scanf("%lld", &b[i]);
 	}
 	map<double,long>d;
 	for (int i = 0 ; i < n; i++){
