@@ -2,7 +2,7 @@
 
 #include<iostream>
 #include<map>
-#include<vector.h>
+#include<vector>
 using namespace std;
 
 void solve(){
