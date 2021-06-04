@@ -16,12 +16,20 @@ void solve(){
 		cin >> b[i];
 	}
 	map<double,long>d;
+	int count = 0;
 	for (int i = 0 ; i < n; i++){
-		if (a[i] == 0) continue;
-		double temp = (double)-b[i]/a[i];
-		d[temp]++;
+		if (a[i] == 0 && b[i] != 0) continue;
+		else if (a[i] == 0 && b[i] == 0) count++;
+		else {
+			double temp = (double)-b[i]/a[i];
+			d[temp]++;
+		}
 	}
 	int answer = 0;
+	if (d.size() == 0 ){ 
+		answer = count;
+	}
+	else 
 	for (auto &i : d){
 		if (i.second > answer) answer = i.second;
 	}
