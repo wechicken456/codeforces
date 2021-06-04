@@ -38,9 +38,24 @@ void solve(){
 			check = false;
 		}
 	}
-	for (int i = 0; i < low.size();i ++){
-		cout << low[i] << " " << high[i] << "\n";
+	if (low.size() == 1){
+		answer = a;
 	}
+	else {
+		vector<bool>c;
+		check = false;
+		for (int i = 0; i < low.size()-1;i ++){
+			if (a + b*(low[i+1] - high[i] -1) <= 2*a){
+				answer += b*(low[i+1] - high[i] - 1);
+				check = true;
+			}
+			else {
+				answer += a;
+			}
+		}
+		answer += a;
+	}
+	cout << answer << "\n";
 }
 
 int main(){
