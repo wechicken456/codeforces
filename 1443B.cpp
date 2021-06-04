@@ -33,9 +33,13 @@ void solve(){
 			high.push_back(i-1);
 			check = false;
 		}
+		if (check == true && i == bombs.length()-1){
+			high.push_back(i);
+			check = false;
+		}
 	}
 	for (int i = 0; i < low.size();i ++){
-		cout << low[i] << "  " << high[i] << "\n";
+		cout << low[i] << " " << high[i] << "\n";
 	}
 }
 
