@@ -26,7 +26,7 @@ void solve(){
 	for (int i = 0; i < b.size()-1; i++){
 		cout << b[i] << " " << b[i+1] << " " << 2*k << "\n";
 		int diff = b[i+1] - b[i] - 1;
-		if (diff > 2*k) {
+		if (diff >= 2*k) {
 			int m = (diff + 1) / k;
 			//cout << "m: " << m << "\n";
 			while (m*k + m -1 > diff) m--;
