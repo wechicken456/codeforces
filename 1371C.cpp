@@ -18,15 +18,15 @@ void solve(){
 	cin >> s;
 	int answer = 0;
 	vector<int>b;
-	b.push_back(0);
+	b.push_back(-1);
 	for (int i = 0 ; i < s.length();i ++){
 		if (s[i] == '1') b.push_back(i);
 	}
-	b.push_back(n-1);
+	b.push_back(n);
 	for (int i = 0; i < b.size()-1; i++){
 		cout << b[i] << " " << b[i+1] << " " << 2*k << "\n";
 		int diff = b[i+1] - b[i] - 1;
-		if (diff >= 2*k) {
+		if (diff > 2*k) {
 			int m = (diff + 1) / k;
 			//cout << "m: " << m << "\n";
 			while (m*k + m -1 > diff) m--;
