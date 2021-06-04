@@ -19,11 +19,29 @@ void solve(){
 	cin >> a >> b;
 	string bombs;
 	cin >> bombs;
-	bitset<bombs.length()>s(bombs);
-	cout << s.count('1') << "\n";
+	map<int , int> segments ;
+	int low, high;
+	bool check = false;
+	for (int i = 0 ; i < bombs.length(); i++){
+		if (bombs[i] == '1' && check == false){
+			low = i;
+			check = true;
+		}
+		if (check == true && bombs[i] == '0'){
+			high = i-1;
+			segments[low] = high;
+			check = false;
+		}
+	}
+
+	for (auto &x : segments) {
+		cout << x.first << " " << x.second << "\n";
+	}
 }
 
 int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
 	int T;
 	cin >> T;
 	while (T--){
