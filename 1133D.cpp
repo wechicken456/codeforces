@@ -15,24 +15,25 @@ void solve(){
 	for (int i = 0 ; i < n; i++){
 		cin >> b[i];
 	}
-	map<double,long>d;
+	map<pair<long long , long long>,int>d;
 	int count = 0;
+	int answer = 0;
 	for (int i = 0 ; i < n; i++){
 		if (a[i] == 0 && b[i] != 0) continue;
-		else if (a[i] == 0 && b[i] == 0) count++;
+		else if (a[i] == 0 && b[i] == 0) answer++;
 		else {
-			double temp = (double)-b[i]/a[i];
-			cout << temp << "\n";
-			d[temp]++;
+			int g =  __gcd(abs(a[i]), abs(b[i]));
+			b[i] /= g;
+			a[i] /= g;
+			if (a[i] < 0 ) {
+				a *= -1;
+				b *= -1;
+			}
+			d[{-b[i], a[i]}]++;
 		}
 	}
-	int answer = 0;
-	if (d.size() == 0 ){ 
-		answer = count;
-	}
-	else 
 	for (auto &i : d){
-		if (i.second + count > answer) answer = i.second + count;
+		if (i.second > answer) answer = i.second;
 	}
 	cout << answer << "\n";
 
