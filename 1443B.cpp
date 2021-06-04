@@ -15,27 +15,27 @@ typedef unsigned long long ll;
 using namespace std;
 
 void solve(){
-	int a, b;
+	int a, b, answer = 0;
 	cin >> a >> b;
 	string bombs;
 	cin >> bombs;
-	map<int , int> segments ;
-	int low, high;
+	//map<int , int> segments ;
+	vector<int>low;
+	vector<int>high;
+	int count=0;
 	bool check = false;
 	for (int i = 0 ; i < bombs.length(); i++){
 		if (bombs[i] == '1' && check == false){
-			low = i;
+			low.push_back(i);
 			check = true;
 		}
 		if (check == true && bombs[i] == '0'){
-			high = i-1;
-			segments[low] = high;
+			high.push_back(i-1);
 			check = false;
 		}
 	}
-
-	for (auto &x : segments) {
-		cout << x.first << " " << x.second << "\n";
+	for (int i = 0; i < low.size();i ++){
+		cout << low[i] << "  " << high[i] << "\n";
 	}
 }
 
