@@ -33,9 +33,11 @@ void solve(){
 			d[{-b[i], a[i]}]++;
 		}
 	}
+	long long max = 0;
 	for (auto &i : d){
-		if (i.second > answer) answer = i.second;
+		if (i.second > max) max = i.second;
 	}
+	answer += max;
 	cout << answer << "\n";
 
 }
