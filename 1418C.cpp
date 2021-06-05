@@ -41,7 +41,7 @@ int main(){
 	int T;
 	cin >> T;
 	while (T--){
-		cout << "#" << T << ":\n";
+		//cout << "#" << T << ":\n";
 		solve();
 	}
 }
