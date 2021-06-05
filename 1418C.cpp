@@ -24,12 +24,12 @@ void solve(){
 			count++;
 		}
 		else { 
-			answer += (count < 3) ? 0 : ceil((double)count/3);
+			answer += (count < 3) ? 0 : (double)count/3;
 			count = 0;
 		}
 	}
 	if (i == n && count > 0){
-		answer += (count < 3) ? 0 : ceil((double)count/3);
+		answer += (count < 3) ? 0 : (double)count/3;
 	}
 	cout << answer << "\n";
 
