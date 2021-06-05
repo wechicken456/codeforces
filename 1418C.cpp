@@ -16,6 +16,7 @@ void solve(){
 	cin >> n; 
 	vector<int>boss(n);
 	cin >> boss[0];
+	
 	int answer = 0;
 	int i,count = 0 ;
 	for (i = 1 ; i < n; i++){
@@ -31,6 +32,7 @@ void solve(){
 	if (i == n && count > 0){
 		answer += (count < 3) ? 0 : (double)count/3;
 	}
+	if (boss[0] == 1) answer++;
 	cout << answer << "\n";
 
 }
