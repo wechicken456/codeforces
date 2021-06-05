@@ -14,7 +14,7 @@ using namespace std;
 void solve(){
 	int n;
 	cin >> n; 
-	vector<bool>boss(n);
+	vector<int>boss(n);
 	cin >> boss[0];
 	int answer = 0;
 	int i,count = 0 ;
