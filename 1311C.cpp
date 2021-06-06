@@ -27,7 +27,7 @@ void solve(){
 	cin >> n >> m;
 	string s;
 	cin >> s;
-	for (int i = 0: i < n; i++){
+	for (int i = 0; i < n; i++){
 		occ[s[i]]++;
 	}
 	vector<int>wrongs(m);
