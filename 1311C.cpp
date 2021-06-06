@@ -23,6 +23,7 @@ void init(){
 }
 
 void solve(){
+	init();
 	int m,n;
 	cin >> n >> m;
 	string s;
@@ -46,7 +47,6 @@ void solve(){
 
 
 int main(){
-	init();
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	int T;
