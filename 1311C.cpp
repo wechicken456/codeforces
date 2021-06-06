@@ -41,6 +41,7 @@ void solve(){
 	for (auto & x : occ){
 		cout << x.second << " ";
 	}
+	cout << "\n";
 }
 
 
