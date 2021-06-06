@@ -14,32 +14,27 @@ typedef  long long ll;
 
 using namespace std;
 
-map<char, int>occ;
-
-void init(){
-	for (char c = 'a'; c <= 'z'; c++){
-		occ[c] = 0;
-	}
-}
-
 void solve(){
-	init();
 	int m,n;
 	cin >> n >> m;
 	string s;
 	cin >> s;
-	for (int i = 0; i < n; i++){
-		occ[s[i]]++;
-	}
+	vector<int>occ(n);
+
 	vector<int>wrongs(m);
 	for (int i = 0 ; i< m; i++){
 		cin >> wrongs[i];
-		if (wrongs[i] == n) continue;
-		for (int j = 0 ; j < wrongs[i]; j++){
-			occ[s[j]]++;
-		}
+		occ[wrongs[i]-1]++;
 	}
-	for (auto & x : occ){
+	for (int i = n-1; i > 0 ; i--){
+		occ[i-1] += occ[i];
+	}
+	vector<int>answer(26);
+	for (int i = 0 ; i < n; i++){
+		answer[s[i] - 'a'] += occ[i] + 1;
+	}
+	
+	for (int i = 0 ; i < 26; i++){
 		cout << x.second << " ";
 	}
 	cout << "\n";
