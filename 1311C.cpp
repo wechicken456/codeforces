@@ -35,7 +35,7 @@ void solve(){
 	}
 	
 	for (int i = 0 ; i < 26; i++){
-		cout << x.second << " ";
+		cout << answer[i] << " ";
 	}
 	cout << "\n";
 }
