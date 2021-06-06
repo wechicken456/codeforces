@@ -39,13 +39,15 @@ void solve(){
 		}
 	}
 	for (auto & x : occ){
-		cout << x.second << "\n";
+		cout << x.second << " ";
 	}
 }
 
 
 int main(){
 	init();
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
 	int T;
 	cin >> T;
 	while (T--){
