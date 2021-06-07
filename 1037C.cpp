@@ -14,9 +14,12 @@ using namespace std;
 void solve(){
 	ll n;
 	cin >> n;
-	char *a = (char*)malloc(n), *b = (char*)malloc(n);
+	/*char *a = (char*)malloc(n), *b = (char*)malloc(n);
 	scanf("%s", a);
 	scanf("%s", b);
+	*/
+	string a,b;
+	cin >> a >> b;
 	vector<ll> diff;
 	for (int i = 0 ; i < n; i++){
 		if (a[i] != b[i]) {
@@ -42,7 +45,8 @@ void solve(){
 			}
 		}
 	}
-	printf("%lld\n", answer);
+	//printf("%lld\n", answer);
+	cout << answer << "\n";
 }
 
 int main() {
