@@ -33,7 +33,7 @@ void solve(){
         }
         if (n > 1) factors.push_back(n);
 		if (n % 2 == 1) count++;
-
+		cout << count << ":";
 		if (count % 2 == 1){
 			winner = 1;
 		}
