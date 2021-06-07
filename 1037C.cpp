@@ -28,6 +28,7 @@ void solve(){
 	else {
 		ll diff_size = diff.size();
 		for (ll i = 0 ; i < diff_size; i++){
+			cout << diff[i] << ":";
 			if (i == diff_size-1 ) {
 				answer++;
 				break;
@@ -35,7 +36,6 @@ void solve(){
 			if (diff[i+1] - diff[i] == 1 && b[i+1] != b[i]){
 				answer++;
 				i++;
-				cout << answer << " " << i;
 			}
 			else {
 				answer++;
