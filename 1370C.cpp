@@ -23,12 +23,13 @@ void solve(){
 	}
 	else {
 		vector<ll>factors;
-		ll count = 0;
-		for (int x = 2; x*x <= n; x++){
-			while (n % x == 0) {
-				if (x % 2 == 1) count++;
+		ll count = 0, x =2;
+		while (x*x <= n) {
+			if (n % x == 0) {
+				if (x %  2== 1) count++;
 				n /= x;
 			}
+			else x++;
 		}
 		cout << count << ":";
 		if (count % 2 == 1){
