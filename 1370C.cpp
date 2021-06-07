@@ -13,6 +13,7 @@ using namespace std;
 
 void solve(){
 	ll n;
+	cin >> n;
 	int winner = 1; 		// 0 if FastestFinger and 1 if Ash 
 	if (n ==1 ) {
 		winner = 0;
