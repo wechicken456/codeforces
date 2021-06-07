@@ -30,6 +30,7 @@ void solve(){
 				n /= x;
 			}
 		}
+		cout << count << ":";
 		if (count % 2 == 1){
 			winner = 1;
 		}
