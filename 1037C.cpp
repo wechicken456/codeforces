@@ -14,9 +14,10 @@ using namespace std;
 void solve(){
 	int n;
 	cin >> n;
-	string a,b;
+	char *a, *b;
 	scanf("%s", a);
 	scanf("%s", b);
+	cout << a << "\n" << b;
 }
 
 int main() {
