@@ -33,7 +33,7 @@ void solve(){
 				answer++;
 				break;
 			}
-			if (diff[i+1] - diff[i] == 1 && b[i+1] != b[i]){
+			if (diff[i+1] - diff[i] == 1 && b[diff[i]+1] != b[diff[i]]){
 				answer++;
 				i++;
 			}
