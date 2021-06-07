@@ -1,3 +1,6 @@
+
+//	https://codeforces.com/problemset/problem/1370/C
+
 #include<iostream>
 #include<stdio.h>
 #include<vector>
