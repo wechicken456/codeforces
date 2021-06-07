@@ -22,19 +22,21 @@ void solve(){
 		winner = 1;
 	}
 	else {
-		vector<ll>factors;
+		//vector<ll>factors;
 		ll odd_count = 0, count_2 = 0;
 		for (int x = 2; x*x <= n; x++) {
            while (n%x == 0) {
-               	factors.push_back(x);
+               	//factors.push_back(x);
 				if (x % 2 == 1) odd_count++;
 				if (x == 2) count_2 ++;
 				n /= x; 
 			}
         }
-        if (n > 1) factors.push_back(n);
-		if (n == 2) count_2++;
-		if (n % 2 == 1) odd_count++;
+        if (n > 1) {
+			//factors.push_back(n);
+			if (n % 2 == 1) odd_count++;
+			if (n  ==2 ) count_2++;
+		}
 		//cout << count << ":";
 		if (odd_count % 2 == 1 && count_2 > 1){
 			winner = 1;
