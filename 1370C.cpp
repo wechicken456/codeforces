@@ -23,18 +23,20 @@ void solve(){
 	}
 	else {
 		vector<ll>factors;
-		ll count = 0;
+		ll odd_count = 0, count_2 = 0;
 		for (int x = 2; x*x <= n; x++) {
            while (n%x == 0) {
                	factors.push_back(x);
-				if (x % 2 == 1) count++;
+				if (x % 2 == 1) odd_count++;
+				if (x == 2) count_2 ++;
 				n /= x; 
 			}
         }
         if (n > 1) factors.push_back(n);
+		if (n == 2) count_two++;
 		if (n % 2 == 1) count++;
 		cout << count << ":";
-		if (count % 2 == 1){
+		if (count % 2 == 1 && count_2 > 1){
 			winner = 1;
 		}
 		else { 
