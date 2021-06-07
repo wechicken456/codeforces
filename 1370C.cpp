@@ -37,6 +37,7 @@ void solve(){
 			if (n % 2 == 1) odd_count++;
 			if (n  ==2 ) count_2++;
 		}
+		cout << odd_count << ":" << count_2 << "\n";
 		if (odd_count % 2 == 1 && count_2 > 1){
 			winner = 1;
 		}
