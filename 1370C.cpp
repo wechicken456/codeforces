@@ -18,7 +18,7 @@ void solve(){
 	if (n ==1 ) {
 		winner = 0;
 	}
-	else if (n % 2 == 1){
+	else if (n == 2 || n % 2 == 1){
 		winner = 1;
 	}
 	else {
@@ -37,7 +37,6 @@ void solve(){
 			if (n % 2 == 1) odd_count++;
 			if (n  ==2 ) count_2++;
 		}
-		//cout << count << ":";
 		if (odd_count % 2 == 1 && count_2 > 1){
 			winner = 1;
 		}
