@@ -16,7 +16,7 @@ void solve(){
 	cin >> n;
 	vector<vector<char>>arr(n);
 	for (int i = 0 ; i < n; i++){
-		arr[i] = vector<int>(n);
+		arr[i] = vector<char>(n);
 		for (int j = 0; j < n; j++){
 			cin >> arr[i][j];
 		}
