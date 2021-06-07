@@ -33,7 +33,7 @@ void solve(){
 			}
         }
         if (n > 1) factors.push_back(n);
-		if (n == 2) count_two++;
+		if (n == 2) count_2++;
 		if (n % 2 == 1) odd_count++;
 		//cout << count << ":";
 		if (odd_count % 2 == 1 && count_2 > 1){
