@@ -25,7 +25,7 @@ void solve(){
 		//vector<ll>factors;
 		ll odd_count = 0, count_2 = 0;
 		for (int x = 2; x*x <= n; x++) {
-           while (n%x == 0) {
+			while (n%x == 0) {
                	//factors.push_back(x);
 				if (x % 2 == 1) odd_count++;
 				if (x == 2) count_2 ++;
