@@ -35,6 +35,7 @@ void solve(){
 			if (diff[i+1] - diff[i] == 1 && b[i+1] != b[i]){
 				answer++;
 				i++;
+				cout << answer << " " << i;
 			}
 			else {
 				answer++;
