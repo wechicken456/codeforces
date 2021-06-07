@@ -14,7 +14,7 @@ using namespace std;
 void solve(){
 	int n;
 	cin >> n;
-	char *a, *b;
+	char *a = (char*)malloc(n), *b = (char*)malloc(n);
 	scanf("%s", a);
 	scanf("%s", b);
 	cout << a << "\n" << b;
