@@ -14,7 +14,7 @@ using namespace std;
 void solve(){
  	int n;
 	cin >> n;
-	vector<vector<int>>arr(n);
+	vector<vector<char>>arr(n);
 	for (int i = 0 ; i < n; i++){
 		arr[i] = vector<int>(n);
 		for (int j = 0; j < n; j++){
@@ -24,8 +24,8 @@ void solve(){
 	bool check = true;
 	for (int row = 0; row < n-1; row++){
 		for (int col = 0 ; col < n-1; col++){
-			if (arr[row][col] == 1) {
-				if (arr[row+1][col] == 0 && arr[row][col+1] == 0) {
+			if (arr[row][col] == '1') {
+				if (arr[row+1][col] == '0' && arr[row][col+1] == '0') {
 					check = false;
 					break;
 				}
