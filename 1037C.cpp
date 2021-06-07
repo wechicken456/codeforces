@@ -26,8 +26,8 @@ void solve(){
 	int answer = 0 ;
 	if (diff.size() == 1) answer++;
 	else
-	for (int i = 0 ; i < diff.size()-1; i++){
-		if (diff[i+1] - diff[i] == 1){
+	for (int i = 1 ; i < diff.size(); i++){
+		if (diff[i] - diff[i-1] == 1){
 			answer++;
 			i++;
 		}
