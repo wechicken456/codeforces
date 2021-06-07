@@ -17,7 +17,25 @@ void solve(){
 	char *a = (char*)malloc(n), *b = (char*)malloc(n);
 	scanf("%s", a);
 	scanf("%s", b);
-	cout << a << "\n" << b;
+	vector<int> diff;
+	for (int i = 0 ; i < n; i++){
+		if (a[i] != b[i]) {
+			diff.push_back(i);
+		}
+	}
+	int answer = 0 ;
+	if (diff.size() == 1) answer++;
+	else
+	for (int i = 0 ; i < diff.size()-1; i++){
+		if (diff[i+1] - diff[i] == 1){
+			answer++;
+			i++;
+		}
+		else {
+			answer++;
+		}
+	}
+	cout << answer << "\n";
 }
 
 int main() {
