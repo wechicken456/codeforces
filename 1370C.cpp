@@ -15,7 +15,7 @@ void solve(){
 	ll n;
 	cin >> n;
 	int winner = 1; 		// 0 if FastestFinger and 1 if Ash 
-	if (n ==1 ) {
+	if (n == 1) {
 		winner = 0;
 	}
 	else if (n == 2 || n % 2 == 1){
@@ -37,15 +37,18 @@ void solve(){
 			if (n % 2 == 1) odd_count++;
 			if (n  ==2 ) count_2++;
 		}
-		cout << odd_count << ":" << count_2 << "\n";
-		if (odd_count % 2 == 1 && count_2 > 1){
-			winner = 1;
-		}
-		else if (odd_count % 2 == 0 && odd_count > 0 && count_2 == 1) {
-			winner = 1;
-		}
-		else { 
+		//cout << odd_count << ":" << count_2 << "\n";
+		if (odd_count == 0){
 			winner = 0;
+		}
+		else if (odd_count == 1 && count_2 == 1){
+			winner = 0;
+		}
+		else if (odd_count == 1 && count_2 > 1){
+			winner = 1;
+		}
+		else if (odd_count > 1){
+			winner = 1;
 		}
 	}
 
