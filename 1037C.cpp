@@ -41,7 +41,7 @@ void solve(){
 			}
 		}
 	}
-	printf("%lld\n", &answer);
+	printf("%lld\n", answer);
 }
 
 int main() {
