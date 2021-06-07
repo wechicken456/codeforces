@@ -41,7 +41,7 @@ void solve(){
 			}
 		}
 	}
-	cout << answer << "\n";
+	printf("%lld\n", &answer);
 }
 
 int main() {
