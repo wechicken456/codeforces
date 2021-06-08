@@ -15,9 +15,13 @@ using namespace std;
 void solve(){
 	ll s, n;
 	cin >> n >> s;
-	bool check = true;
-	if (n > (ll)s/2) {
-		check = false;
+	if (n > (ll)s/2 || (n == 1 && s == 1)) {
+		cout << "NO" << "\n";
+	}
+	else if (n == 1 && s > 1) {
+		cout << "YES" << "\n";
+		cout << s << "\n";
+		cout << 1 << "\n";
 	}
 	else {
 		for (int i = 0 ; i < n - 1; i++) cout << 1 << " ";
