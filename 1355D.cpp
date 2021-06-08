@@ -15,15 +15,16 @@ using namespace std;
 void solve(){
 	ll s, n;
 	cin >> n >> s;
-	if (n > (ll)s/2 || (n == 1 && s == 1)) {
+	if (n > (ll)s/2) {
 		cout << "NO" << "\n";
-	}
+	}/*
 	else if (n == 1 && s > 1) {
 		cout << "YES" << "\n";
 		cout << s << "\n";
 		cout << 1 << "\n";
-	}
+	}*/
 	else {
+		cout << "YES" << "\n";
 		for (int i = 0 ; i < n - 1; i++) cout << 1 << " ";
 		cout << s - n + 1 << "\n";
 		cout << n << "\n";
