@@ -36,10 +36,12 @@ void solve(){
 	ll rem = 0;
 	map<ll, ll>::iterator it = teams.end();
 	it = prev(it, 1);
+	
 	for (; it != teams.begin(); it = prev(it, 1)){
 		it->second += rem;
 		temp = (ll)it->second / it->first;
 		rem = it->second - it->first * temp;
+		cout << it->first << ":" << it->second << " " << temp << ":" << rem << "\n";
 		answer += temp;
 	}
 	it->second += rem;
