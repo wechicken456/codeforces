@@ -39,15 +39,16 @@ void solve(){
 	for (; it != teams.end(); it++){
 		it->second += rem;
 		temp = (ll)it->second / it->first;
-		rem = it->second - it->first * temp;
+		rem = it->second % it->first;
 		cout << it->first << ":" << it->second << " " << temp << ":" << rem << "\n";
 		answer += temp;
 	}
+	/*
 	it->second += rem;
 	temp = (ll)it->second / it->first;
  	rem = it->second - it->first * temp;
 	answer += temp;
-
+	*/
 	cout << answer << "\n";
 	
 }
