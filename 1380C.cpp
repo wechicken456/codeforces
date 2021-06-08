@@ -35,15 +35,15 @@ void solve(){
 	
 	ll rem = 0;
 	map<ll, ll>::iterator it = --teams.end();
-	temp = (ll)i->second / i->first;
-	rem = i->second - i->first * temp; 
+	temp = (ll)it->second / it->first;
+	rem = it->second - it->first * temp; 
 	answer += temp;
 	it--;
 
 	for (; it != teams.begin() || it == teams.begin(); it--){
 		it->second += rem;
-		temp = (ll)i->second / i->first;
-		rem = i->second - i->first * temp;
+		temp = (ll)i->second / it->first;
+		rem = it->second - it->first * temp;
 		answer += temp;
 	}
 	cout << answer << "\n";
