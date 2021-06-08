@@ -35,7 +35,7 @@ void solve(){
 	
 	ll rem = 0;
 	map<ll, ll>::iterator it = teams.end();
-	it--;
+	/*it--;
 	temp = (ll)it->second / it->first;
 	rem = it->second - it->first * temp; 
 	answer += temp;
@@ -48,6 +48,7 @@ void solve(){
 		answer += temp;
 	}
 	cout << answer << "\n";
+	*/
 }
 
 int main(){
