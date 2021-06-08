@@ -1,7 +1,7 @@
 
 #include<vector>
 #include<iostream>
-
+#include<cmath>
 using namespace std;
 vector<int> factors(int n) {
         vector<int> f;
@@ -16,8 +16,9 @@ vector<int> factors(int n) {
 
 int main(){
 	vector<int>arr = factors(12);
-	for (int i = 0 ; i < arr.size(); i++){
+	/*for (int i = 0 ; i < arr.size(); i++){
 		cout << arr[i] << "\n";
-	}
+	}*/
+	cout << (long long)7/4 << "\n";
 }
 
