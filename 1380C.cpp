@@ -32,8 +32,19 @@ void solve(){
 		temp = my_ceil(x,p);
 		teams[temp]++;
 	}
-	for (auto &i : teams){
-		answer += (ll)i.second/i.first;
+	
+	ll rem = 0;
+	map<ll, ll>::iterator it = --teams.end();
+	temp = (ll)i->second / i->first;
+	rem = i->second - i->first * temp; 
+	answer += temp;
+	it--;
+
+	for (; it != teams.begin() || it == teams.begin(); it--){
+		it->second += rem;
+		temp = (ll)i->second / i->first;
+		rem = i->second - i->first * temp;
+		answer += temp;
 	}
 	cout << answer << "\n";
 }
