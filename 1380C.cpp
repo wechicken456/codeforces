@@ -42,7 +42,7 @@ void solve(){
 
 	for (; it != teams.begin() || it == teams.begin(); it--){
 		it->second += rem;
-		temp = (ll)i->second / it->first;
+		temp = (ll)it->second / it->first;
 		rem = it->second - it->first * temp;
 		answer += temp;
 	}
