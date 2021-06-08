@@ -34,10 +34,9 @@ void solve(){
 	}
 	
 	ll rem = 0;
-	map<ll, ll>::iterator it = teams.end();
-	it = prev(it, 1);
+	map<ll, ll>::iterator it = teams.begin();
 	
-	for (; it != teams.begin(); it = prev(it, 1)){
+	for (; it != teams.end(); it++){
 		it->second += rem;
 		temp = (ll)it->second / it->first;
 		rem = it->second - it->first * temp;
