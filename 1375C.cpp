@@ -26,7 +26,7 @@ void solve(){
 	//int l = 0,h;
 	for(int i = 1; i < n; i++) {
 		cin >> arr[i];
-		if (arr[i] > arr[i-1]) {
+		if (arr[i] < arr[i-1]) {
 			high.push_back(arr[i-1]);
 			low.push_back(arr[i]);
 			if (i == n-1) high.push_back(arr[i]);
