@@ -23,17 +23,17 @@ void solve(){
 
 	cin >> arr[0];
 	low.push_back(arr[0]);
-	int l = 0,high = arr[0];
+	int l = 0, h = arr[0];
 	for(int i = 1; i < n; i++) {
 		cin >> arr[i];
 		if (arr[i] < arr[i-1]) {
-			high.push_back(high);
+			high.push_back(h);
 			low.push_back(arr[i]);
 			if (i == n-1) high.push_back(arr[i]);
 		}
 		else {
-			high = arr[i];
-			if (i == n-1) high.push_back(high);
+			h = arr[i];
+			if (i == n-1) high.push_back(h);
 		}
 	}
 
