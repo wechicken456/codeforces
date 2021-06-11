@@ -28,6 +28,7 @@ void solve(){
 		ll x = ceil((double)temp/ g);
 		answer = (x-1)*(g + b);
 		answer += temp - (x-1)*g;
+		answer = max(n, answer);
 		//cout << answer << "\n";
 	}
 	cout << answer << "\n";
