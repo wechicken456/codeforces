@@ -27,7 +27,7 @@ void solve(){
 	else {
 		ll x = my_ceil(temp, g);
 		answer = (x-1)*(g + b);
-		answer += temp - (x-1)*g;
+		answer += temp % g;
 		//cout << answer << "\n";
 	}
 	cout << answer << "\n";
