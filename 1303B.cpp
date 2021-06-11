@@ -20,14 +20,14 @@ void solve(){
 	ll n,g,b;
 	cin >> n >> g >> b;
 	ll answer = 0;
-	ll temp = my_ceil(n, 2); 
+	ll temp = ceil((double)n/ 2); 
 	if (n <= g) {
 		answer = n;
 	}
 	else {
-		ll x = my_ceil(temp, g);
+		ll x = ceil((double)temp/ g);
 		answer = (x-1)*(g + b);
-		answer += temp % g;
+		answer += temp - (x-1)*g;
 		//cout << answer << "\n";
 	}
 	cout << answer << "\n";
