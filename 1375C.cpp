@@ -37,9 +37,12 @@ void solve(){
 		}
 	}
 
-	for (int i = 0 ; i < low.size(); i++){
-		cout << low[i] << " " << high[i] << "\n";
-	}
+	bool check = true;
+	if (low.size() != 1) 
+		for (int i = 0 ; i < low.size(); i++){
+			if (low[i+1] < low[i] && high[i+1] < low[i]);
+		}
+
 }
 
 
