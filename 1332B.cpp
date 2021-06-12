@@ -18,7 +18,7 @@ void solve(){
 	int n;
 	cin >> n;
 	vector<int>a(n);
-	vector<int>color;
+	vector<int>color(n);
 	int count = 0;
 	map<int ,int>m = {{2, 1}, {3,2}, {5, 3}, {7, 4}, {11, 5}, {13, 6}, {17, 7}, {19, 8}, {23, 9}, {29, 10}, {31, 10}};
 	set<int>s;
@@ -26,7 +26,7 @@ void solve(){
 		cin >> a[i];
 		for (int j = 2; j  < n; j++){
 			if (a[i] % j == 0) {
-				color.push_back(m[j]);			
+				color[i] = m[j];			
 				s.insert(m[j]);
 			}
 		}
