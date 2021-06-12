@@ -29,10 +29,8 @@ void solve(){
 	for (int i = 1; i < n; i++){
 		cin >> a[i];
 		for (auto&x : m) {
-			check =false;
-			//cout << gcd(a[i], x.second[j]) << ":";
+			check = false;
 			for (int j = 0 ; j < x.second.size();j ++){
-				cout << gcd(a[i], x.second[j])<< ":";
 				if (gcd(a[i], x.second[j]) == 1){
 					check = true;
 					break;
@@ -43,26 +41,25 @@ void solve(){
 				x.second.push_back(a[i]);
 				break;
 			}
-			cout << "\n";
 		}
 		if (check == true){
 			m[++count].push_back(a[i]);
 			color[i] = count;
 		}
 	}
-	/*
+	
 	cout << count << "\n";
 	for (int i = 0 ; i < n; i++){
 		cout << color[i] << " ";
 	}
-	*/
+	/*
 	for (auto &x: m){
 		cout << "#" << x.first << "\n";
 		for (int i = 0 ; i < x.second.size(); i++){
 			cout << x.second[i] << " ";
 		}
 		cout << "\n";
-	}
+	}*/
 	cout << "\n";
 }
 
