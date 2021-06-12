@@ -47,10 +47,18 @@ void solve(){
 			color[i] = count;
 		}
 	}
-
+	/*
 	cout << count << "\n";
 	for (int i = 0 ; i < n; i++){
 		cout << color[i] << " ";
+	}
+	*/
+	for (auto &x: m){
+		cout << "#" << x.first << "\n";
+		for (int i = 0 ; i < x.second.size(); i++){
+			cout << x.second[i] << " ";
+		}
+		cout << "\n";
 	}
 	cout << "\n";
 }
