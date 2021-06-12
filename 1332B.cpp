@@ -27,7 +27,7 @@ void solve(){
 		for (int j = 2; j  < n; j++){
 			if (a[i] % j == 0) {
 				color[i] = m[j];			
-				s.push_back(m[j]);
+				s.insert(m[j]);
 			}
 		}
 	}
