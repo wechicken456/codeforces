@@ -30,8 +30,9 @@ void solve(){
 		cin >> a[i];
 		for (auto&x : m) {
 			check =false;
-			cout << gcd(a[i], x.second[j]) << ":";
+			//cout << gcd(a[i], x.second[j]) << ":";
 			for (int j = 0 ; j < x.second.size();j ++){
+				cout << gcd(a[i], x.second[j])<< ":";
 				if (gcd(a[i], x.second[j]) == 1){
 					check = true;
 					break;
