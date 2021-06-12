@@ -17,49 +17,24 @@ void solve(){
 	int n;
 	cin >> n;
 	vector<int>a(n);
-	vector<int>color(n);
-	cin >> a[0];
-	color[0] = 1;
-	map<int, vector<int>>m;
-	m[1].push_back(a[0]);
-	bool check;
-
-	int count = 1;
-
-	for (int i = 1; i < n; i++){
+	vector<int>color;
+	int count = 0;
+	map<int ,int>m = {{2, 1}, {3,2}, {5, 3}, {7, 4}, {11, 5}}	
+	for (int i = 0 ; i < n; i++) {
 		cin >> a[i];
-		for (auto&x : m) {
-			check = false;
-			for (int j = 0 ; j < x.second.size();j ++){
-				if (gcd(a[i], x.second[j]) == 1){
-					check = true;
-					break;
-				}
+		for (int j = 2; j  < n; j++){
+			if (a[i] % j == 0) {
+				
 			}
-			if (check == false) {
-				color[i] = x.first;
-				x.second.push_back(a[i]);
-				break;
-			}
-		}
-		if (check == true){
-			m[++count].push_back(a[i]);
-			color[i] = count;
 		}
 	}
+	
+	
 	
 	cout << count << "\n";
 	for (int i = 0 ; i < n; i++){
 		cout << color[i] << " ";
 	}
-	/*
-	for (auto &x: m){
-		cout << "#" << x.first << "\n";
-		for (int i = 0 ; i < x.second.size(); i++){
-			cout << x.second[i] << " ";
-		}
-		cout << "\n";
-	}*/
 	cout << "\n";
 }
 
