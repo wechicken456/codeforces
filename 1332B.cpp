@@ -24,10 +24,11 @@ void solve(){
 	set<int>s;
 	for (int i = 0 ; i < n; i++) {
 		cin >> a[i];
-		for (int j = 2; j  < n; j++){
+		for (int j = 2; j  < a[i]; j++){
 			if (a[i] % j == 0) {
 				color[i] = m[j];			
 				s.insert(m[j]);
+				break;
 			}
 		}
 	}
