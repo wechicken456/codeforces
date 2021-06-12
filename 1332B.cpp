@@ -19,15 +19,22 @@ void solve(){
 	vector<int>a(n);
 	vector<int>color;
 	int count = 0;
-	map<int ,int>m = {{2, 1}, {3,2}, {5, 3}, {7, 4}, {11, 5}}	
+	map<int ,int>m = {{2, 1}, {3,2}, {5, 3}, {7, 4}, {11, 5}, {13, 6}, {17, 7}, {19, 8}, {23, 9}, {29, 10}, {31, 10}};
+	set<int>s;
 	for (int i = 0 ; i < n; i++) {
 		cin >> a[i];
 		for (int j = 2; j  < n; j++){
 			if (a[i] % j == 0) {
-				
+				color[i] = m[j];			
+				s.push_back(m[j]);
 			}
 		}
 	}
+	cout << s.size() << "\n";
+	for (int i = 0 ; i < n; i++){
+		cout << color[i] << " ";
+	}
+	cout << "\n";
 	
 	
 	
