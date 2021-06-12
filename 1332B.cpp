@@ -43,6 +43,7 @@ void solve(){
 				x.second.push_back(a[i]);
 				break;
 			}
+			cout << "\n";
 		}
 		if (check == true){
 			m[++count].push_back(a[i]);
