@@ -38,12 +38,13 @@ void solve(){
 			if (s[i] == '4')  {
 				ans.push_back(2);
 				ans.push_back(2);
+				ans.push_back(3);
 			}
 			else ans.push_back(s[i] - '0');
 		}
 	}
 	sort(ans.begin(), ans.end());
-	for (int i = 0 ; i < ans.size(); i++) cout << ans[i];
+	for (int i = ans.size()-1 ; i >= 0; i--) cout << ans[i];
 }
 
 int main(){
