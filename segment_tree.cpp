@@ -6,6 +6,7 @@
 using namespace std;
 vector<ll>tree;
 
+const maxA = 1e9+1;
 int n,q;
 
 ll query(int node, int node_low, int node_high, int query_low, int query_high){
@@ -24,11 +25,11 @@ ll query(int node, int node_low, int node_high, int query_low, int query_high){
 void build_tree(vector<ll>a) {
 	// pad with 0 to make power of 2
 	while (__builtin_popcount(n) != 1) {
-		a.push_back(INF);
+		a.push_back(maxA);
 		n++;
 	}
 	tree.resize(2 * n);
-	// copy elements 
+	// copy elementas 
 	for (int i = 0 ; i < n; i++){
 		tree[i+n] = a[i];
 	}
