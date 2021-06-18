@@ -38,38 +38,23 @@ void solve(){
 	vector<int>P(s.length());
 	vector<int>S(s.length());
 	int n = s.length();
-	ans.resize(n);
-	for (int cur  = 0 ; cur < n; cur++){
-		for (int i = 0 ; i < n; i++) {
-			if (win[s[(i + cur) % n]] == 'R' ) R[i]++;
-			else if(win[s[(i + cur) % n]] == 'P') P[i]++;
-			else S[i]++;
-			char c = 'R';
-			int temp = R[i];
-			if (temp < S[i]) {
-				temp = S[i];
-				c = 'S';
-			}
-			if (temp < P[i]) {
-				temp = P[i];
-				c = 'P';
-			}
-			ans[i] = c;
-		}
+
+	for (int i = 0 ; i < n; i++) {
+		if (win[s[i]] == 'R' ) R[0]++;
+		else if(win[s[i]] == 'P') P[0]++;
+		else S[0]++;
 	}
-	/*for (int i = 0; i < n; i++){
-		char c = 'R';
-		int temp = R[i];
-		if (temp < S[i]) {
-			temp = S[i];
-			c = 'S';
-		}
-		if (temp < P[i]) {
-			temp = P[i];
-			c = 'P';
-		}
-		ans.push_back(c);
-	}*/
+	char c = 'R';
+	int temp = R[0];
+	if (temp < S[0]) {
+		temp = S[0];
+		c = 'S';
+	}
+	if (temp < P[0]) {
+		temp = P[0];
+		c = 'P';
+	}
+	ans.resize(n, c);
 	cout << ans << "\n";
 }
 
