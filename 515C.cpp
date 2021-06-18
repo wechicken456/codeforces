@@ -50,6 +50,12 @@ void solve(){
 				ans.push_back(5);
 				ans.push_back(3);
 			}
+			else if (s[i] == '9') {
+				ans.push_back(7);
+				ans.push_back(3);
+				ans.push_back(3);
+				ans.push_back(2);
+			}
 			else ans.push_back(s[i] - '0');
 		}
 	}
