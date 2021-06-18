@@ -34,24 +34,22 @@ void solve(){
 	win['P'] = 'S';
 	win['S'] = 'R';
 	cin >> s;
-	vector<int>R(s.length());
-	vector<int>P(s.length());
-	vector<int>S(s.length());
+	int R = 0, P =0  , S=0;
 	int n = s.length();
 
 	for (int i = 0 ; i < n; i++) {
-		if (win[s[i]] == 'R' ) R[0]++;
-		else if(win[s[i]] == 'P') P[0]++;
-		else S[0]++;
+		if (win[s[i]] == 'R' ) R++;
+		else if(win[s[i]] == 'P') P++;
+		else S++;
 	}
 	char c = 'R';
-	int temp = R[0];
-	if (temp < S[0]) {
-		temp = S[0];
+	int temp = R;
+	if (temp < S) {
+		temp = S;
 		c = 'S';
 	}
-	if (temp < P[0]) {
-		temp = P[0];
+	if (temp < P) {
+		temp = P;
 		c = 'P';
 	}
 	ans.resize(n, c);
