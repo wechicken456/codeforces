@@ -39,7 +39,7 @@ void solve(){
 				ans.push_back(2);
 				ans.push_back(2);
 			}
-			ans.push_back(s[i] - '0');
+			else ans.push_back(s[i] - '0');
 		}
 	}
 	sort(ans.begin(), ans.end());
