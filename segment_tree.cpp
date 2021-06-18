@@ -6,7 +6,7 @@
 using namespace std;
 vector<ll>tree;
 
-const maxA = 1e9+1;
+const ll maxA = 1e9+1;
 int n,q;
 
 ll query(int node, int node_low, int node_high, int query_low, int query_high){
