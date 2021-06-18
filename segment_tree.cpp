@@ -34,7 +34,7 @@ void build_tree(vector<ll>a) {
 	}
 	// start building nodes
 	for (int i = n-1; i >= 1; i--){
-		tree[i] = min(tree[2*i] + tree[2*i+1]);
+		tree[i] = min(tree[2*i], tree[2*i+1]);
 	}
 
 }
