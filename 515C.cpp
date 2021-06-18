@@ -32,7 +32,6 @@ void solve(){
 	cin >> n;
 	string s;
 	cin >> s;
-	char c;
 	vector<int>ans;
 	for(int i = 0; i < n;i++){
 		if (s[i]!='0' && s[i]!='1') {
@@ -40,7 +39,7 @@ void solve(){
 				ans.push_back(2);
 				ans.push_back(2);
 			}
-			ans.push_back(c - '0');
+			ans.push_back(s[i] - '0');
 		}
 	}
 	sort(ans.begin(), ans.end());
