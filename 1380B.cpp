@@ -37,11 +37,13 @@ void solve(){
 	vector<int>R(s.length());
 	vector<int>P(s.length());
 	vector<int>S(s.length());
-	int cur = 0, n = s.length();
-	for (int i = 0 ; i < n; i++, cur++) {
-		if (win[s[(i + cur) % n]] == 'R' ) R[i]++;
-		else if(win[s[(i + cur) % n]] == 'P') P[i]++;
-		else S[i]++;
+	int n = s.length();
+	for (int cur  = 0 ; cur < n; cur++){
+		for (int i = 0 ; i < n; i++) {
+			if (win[s[(i + cur) % n]] == 'R' ) R[i]++;
+			else if(win[s[(i + cur) % n]] == 'P') P[i]++;
+			else S[i]++;
+		}
 	}
 	string ans;
 	for (int i = 0; i < n; i++){
