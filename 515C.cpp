@@ -43,6 +43,9 @@ void solve(){
 			ans.push_back(c - '0');
 		}
 	}
+	n = ans.size();
+	sort(ans, ans + n);
+	for (int i = 0 ; i < n; i++) cout << ans[i];
 }
 
 int main(){
