@@ -28,7 +28,7 @@ ll my_ceil(ll a, ll b) {
 }
 
 void solve(){
-	string s;
+	string s, ans;
 	map<char, char>win;
 	win['R'] = 'P';
 	win['P'] = 'S';
@@ -38,15 +38,26 @@ void solve(){
 	vector<int>P(s.length());
 	vector<int>S(s.length());
 	int n = s.length();
+	ans.resize(n);
 	for (int cur  = 0 ; cur < n; cur++){
 		for (int i = 0 ; i < n; i++) {
 			if (win[s[(i + cur) % n]] == 'R' ) R[i]++;
 			else if(win[s[(i + cur) % n]] == 'P') P[i]++;
 			else S[i]++;
 		}
+		char c = 'R';
+		int temp = R[i];
+		if (temp < S[i]) {
+			temp = S[i];
+			c = 'S';
+		}
+		if (temp < P[i]) {
+			temp = P[i];
+			c = 'P';
+		}
+		ans[i] = c;
 	}
-	string ans;
-	for (int i = 0; i < n; i++){
+	/*for (int i = 0; i < n; i++){
 		char c = 'R';
 		int temp = R[i];
 		if (temp < S[i]) {
@@ -58,7 +69,7 @@ void solve(){
 			c = 'P';
 		}
 		ans.push_back(c);
-	}
+	}*/
 	cout << ans << "\n";
 }
 
