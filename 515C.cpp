@@ -53,6 +53,7 @@ int main(){
 	while (T--){
 		solve();
 	}*/
+	solve();
 }
 
 
