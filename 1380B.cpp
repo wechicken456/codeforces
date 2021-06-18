@@ -29,7 +29,10 @@ ll my_ceil(ll a, ll b) {
 
 void solve(){
 	string s;
-	map<char, char>win = { {'R': 'P'}, {'P': 'S'}, {'S': 'R'} };
+	map<char, char>win;
+	win['R'] = 'P';
+	win['P'] = 'S';
+	win['S'] = 'R';
 	cin >> s;
 	vector<int>R(s.length());
 	vector<int>P(s.length());
