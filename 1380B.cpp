@@ -44,18 +44,18 @@ void solve(){
 			if (win[s[(i + cur) % n]] == 'R' ) R[i]++;
 			else if(win[s[(i + cur) % n]] == 'P') P[i]++;
 			else S[i]++;
+			char c = 'R';
+			int temp = R[i];
+			if (temp < S[i]) {
+				temp = S[i];
+				c = 'S';
+			}
+			if (temp < P[i]) {
+				temp = P[i];
+				c = 'P';
+			}
+			ans[i] = c;
 		}
-		char c = 'R';
-		int temp = R[i];
-		if (temp < S[i]) {
-			temp = S[i];
-			c = 'S';
-		}
-		if (temp < P[i]) {
-			temp = P[i];
-			c = 'P';
-		}
-		ans[i] = c;
 	}
 	/*for (int i = 0; i < n; i++){
 		char c = 'R';
