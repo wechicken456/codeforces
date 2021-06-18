@@ -17,14 +17,14 @@ ll query(int node, int node_low, int node_high, int query_low, int query_high){
 	}
 
 	int middle = (node_low + node_high)/2;
-	return query(2 * node, node_low, middle, query_low, query_high) 		// left child
-		 + query(2 * node + 1, middle + 1, node_high, query_low, query_high);	// right child
+	return min(query(2 * node, node_low, middle, query_low, query_high) 		// left child
+		   ,query(2 * node + 1, middle + 1, node_high, query_low, query_high));	// right child
 }
 
 void build_tree(vector<ll>a) {
 	// pad with 0 to make power of 2
 	while (__builtin_popcount(n) != 1) {
-		a.push_back(0);
+		a.push_back(INFINITY);
 		n++;
 	}
 	tree.resize(2 * n);
@@ -34,7 +34,7 @@ void build_tree(vector<ll>a) {
 	}
 	// start building nodes
 	for (int i = n-1; i >= 1; i--){
-		tree[i] = tree[2*i] + tree[2*i+1];
+		tree[i] = min(tree[2*i] + tree[2*i+1]);
 	}
 
 }
