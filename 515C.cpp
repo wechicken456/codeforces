@@ -46,6 +46,10 @@ void solve(){
 				ans.push_back(2);
 				ans.push_back(2);
 			}
+			else if (s[i] == '6') {
+				ans.push_back(5);
+				ans.push_back(3);
+			}
 			else ans.push_back(s[i] - '0');
 		}
 	}
