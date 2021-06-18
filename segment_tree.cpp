@@ -14,9 +14,8 @@ ll query(int node, int node_low, int node_high, int query_low, int query_high){
 		return tree[node];
 	}
 	if(node_low > query_high || node_high < query_low) {
-		return 0;
+		return maxA;
 	}
-
 	int middle = (node_low + node_high)/2;
 	return min(query(2 * node, node_low, middle, query_low, query_high) 		// left child
 		   ,query(2 * node + 1, middle + 1, node_high, query_low, query_high));	// right child
