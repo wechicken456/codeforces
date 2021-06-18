@@ -24,7 +24,7 @@ ll query(int node, int node_low, int node_high, int query_low, int query_high){
 void build_tree(vector<ll>a) {
 	// pad with 0 to make power of 2
 	while (__builtin_popcount(n) != 1) {
-		a.push_back(INFINITY);
+		a.push_back(INF);
 		n++;
 	}
 	tree.resize(2 * n);
