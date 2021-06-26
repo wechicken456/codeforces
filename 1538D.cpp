@@ -4,6 +4,7 @@ using namespace std;
 #define ll long long
 
 int count_primes(ll a){
+	if (a == 1) return 0;
 	int count = 0 ;
 	for (int p  = 2; p*p <= a; p++){
 		while (a % p == 0) {
@@ -20,6 +21,7 @@ int count_primes(ll a){
 bool solve(){
 	ll a,b,k;
 	cin >> a >> b >> k;
+
 	if (k == 1) {
 		return (a != b && (a % b == 0 || b % a == 0));
 	}
@@ -27,6 +29,8 @@ bool solve(){
 }
 
 int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
 	int T;
 	cin >> T;
 	while (T--){
