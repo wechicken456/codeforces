@@ -34,12 +34,11 @@ void solve(){
 	vector<int>arr(n);
 	for (int i = 0 ; i < n; i++){
 		scanf("%d", &arr[i]);
-		cout << arr[i] << " " ;
 	}
 	int answer = 0;
 	for (int i = 0 ; i < n - 1; i++){
 		for (int j = i + 1; j < n; j++){
-			if (i + j == arr[i] * arr[j]) answer++;
+			if (i + j + 2== arr[i] * arr[j]) answer++;
 		}
 	}
 	printf("%d\n", answer);
