@@ -41,7 +41,7 @@ void solve(){
 			if ( i + j == arr[i] * arr[j]) answer++;
 		}
 	}
-	puts(answer);
+	printf("%d\n", answer);
 }
 
 int main(){
