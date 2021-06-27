@@ -8,12 +8,14 @@
 #include<math.h>
 #include<cmath>
 #include<fstream>
+
 #define ll long long
+#define ull unsigned long long
 #define pb push_back
 
 using namespace std;
 
-ll power(ll x, ull y) {
+ull power(ll x, ull y) {
     if (y == 0)
         return 1;
     else if (y % 2 == 0)

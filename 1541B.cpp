@@ -8,12 +8,14 @@
 #include<math.h>
 #include<cmath>
 #include<fstream>
+
 #define ll long long
+#define ull unsigned long long
 #define pb push_back
 
 using namespace std;
 
-ll power(ll x, ull y) {
+ull power(ll x, ull y) {
     if (y == 0)
         return 1;
     else if (y % 2 == 0)
@@ -31,7 +33,7 @@ void solve(){
 	scanf("%d", &n);
 	vector<int>arr(n);
 	for (int i = 0 ; i < n; i++){
-		scanf("%d", &a[i]);
+		scanf("%d", &arr[i]);
 	}
 	int answer = 0;
 	for (int i = 0 ; i < n - 1;i ++){
