@@ -35,8 +35,8 @@ void solve(){
 	cin >> s[0] >> s[1];
 	int row = 0,  col;
 	for (col = 0 ; col  < n; col++){
-		if (s1[row][col] >= '3') {
-			if (s1[row^1][col] < '3') {
+		if (s[row][col] >= '3') {
+			if (s[row^1][col] < '3') {
 				break;
 			}
 			row ^= 1;
