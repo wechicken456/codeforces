@@ -65,6 +65,7 @@ void solve(){
 				cnt++;
 			}
 		}
+		cout << boxer[i] << "\n";
 	}
 	printf("%d\n", cnt);
 
