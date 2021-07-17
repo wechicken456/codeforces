@@ -43,7 +43,6 @@ void solve(){
 	int cnt = 1;
 	for (int i = 1 ; i < n; i++){
 		diff = boxer[i] - boxer[i-1];
-		cout << boxer[i] << " " ;
 		if (diff >= 2) {
 			cnt++;
 			boxer[i]--;
@@ -69,14 +68,14 @@ void solve(){
 				}
 			}
 			else {
-				auto it = lower_bound(boxer, boxer + n, boxer[i] + 1);
-				if (it == boxer + n || *it != boxer[i] + 1) {
+				int u = lower_bound(boxer, boxer + n, boxer[i]) - boxer;
+				if (u == i) continue;
+				else {
 					boxer[i]++;
 					cnt++;
 				}
 			}
 		}
-		cout << boxer[i] << "\n";
 	}
 	printf("%d\n", cnt);
 
