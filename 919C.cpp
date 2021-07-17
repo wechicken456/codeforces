@@ -44,7 +44,7 @@ bool check(ll k) {
 
 void solve(){
 	scanf("%lld", &n);
-	for (ll i = 1; l <= n; l++){
+	for (ll i = 1; i <= n; l++){
 		if (check(i)) {
 			printf("%lld\n", i);		
 			return;
