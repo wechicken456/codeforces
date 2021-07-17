@@ -33,7 +33,7 @@ void solve(){
 	cin >> n;
 	string s1,s2;
 	cin >> s1 >> s2 ;
-	int row = 0, int col;
+	int row = 0,  col;
 	for (col = 0 ; col  < n; col++){
 		if (s1[row][col] >= '3') {
 			if (s1[row^1][col] < '3') {
