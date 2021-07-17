@@ -28,17 +28,50 @@ ll my_ceil(ll a, ll b) {
 	return (a/b) + ( (a%b)!=0 );
 }
 
+const int maxN = 1.5e6;
+int boxer[maxN];
+int diff[maxN];
+
 void solve(){
 	int n;
-	set<int>s;
 	scanf("%d", &n);
-	for (int i = 0, x; i < n; i++){
-		scanf("%d", &x);
-		s.insert(x);
-		s.insert(x + 1);
-		if (x - 1 > 0) s.insert( x- 1);
+	for (int i = 0; i < n; i++){
+		scanf("%d", &boxer[i]);
 	}
-	printf("%d", s.size());
+	sort(boxer, boxer + n);
+	int last = boxer[0];
+
+	set<int>ans;
+	int cnt = 1;
+	for (int i = 1 ; i < n; i++){
+		diff[i] = boxer[i] - boxer[i-1];
+		if (diff[i] > 0) {
+			last = boxer[i - 1];
+			cnt++;
+		}
+		else {
+			if (boxer[i] - 1 == last) {
+				continue;
+			}
+			else if (boxer[i] - 1 > last) {
+				boxer[i]--;
+				last = boxer[i];
+				cnt++;
+			}
+			else {
+				auto it = lower_bound(boxer.begin(), boxer.end(), boxer[i] + 1);
+				if (it == boxer.end() || *it != boxer[i] + 1) {
+					boxer[i]++;
+					cnt++;
+				}
+				else {
+					continue;
+				}
+			}
+		}
+	}
+	printf("%d\n", cnt);
+
 }
 
 int main(){
