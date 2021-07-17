@@ -43,7 +43,7 @@ void solve(){
 	int cnt = 1;
 	for (int i = 1 ; i < n; i++){
 		diff = boxer[i] - boxer[i-1];
-		if (diff > 2) {
+		if (diff >= 2) {
 			cnt++;
 			boxer[i]--;
 		}
