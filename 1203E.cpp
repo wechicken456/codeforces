@@ -50,24 +50,18 @@ void solve(){
 			cnt++;
 		}
 		else {
-			if (boxer[i] - 1 == last) {
-				continue;
-			}
-			else if (boxer[i] - 1 > last) {
-				boxer[i]--;
-				last = boxer[i];
-				cnt++;
-			}
-			else {
-				auto it = lower_bound(boxer, boxer + n, boxer[i] + 1);
-				if (it == boxer + n || *it != boxer[i] + 1) {
-					boxer[i]++;
-					last = boxer[i];
+			if (boxer[i] != 1) {
+				auto it = lower_bound(boxer, boxer + n, boxer[i] - 1);
+				if (it == boxer + n || *it != boxer[i] - 1) {
+					boxer[i]--;
 					cnt++;
-				}
-				else {
 					continue;
 				}
+			}
+			auto it = lower_bound(boxer, boxer + n, boxer[i] + 1);
+			if (it == boxer + n || *it != boxer[i] + 1) {
+				boxer[i]++;
+				cnt++;
 			}
 		}
 	}
