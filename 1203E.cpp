@@ -39,14 +39,15 @@ void solve(){
 		scanf("%d", &boxer[i]);
 	}
 	sort(boxer, boxer + n);
-	int last = boxer[0];
 
-	set<int>ans;
 	int cnt = 1;
 	for (int i = 1 ; i < n; i++){
 		diff = boxer[i] - boxer[i-1];
-		if (diff > 0) {
-			last = boxer[i - 1];
+		if (diff > 2) {
+			cnt++;
+			boxer[i]--;
+		}
+		else if (diff > 0) {	
 			cnt++;
 		}
 		else {
