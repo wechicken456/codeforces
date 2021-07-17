@@ -41,6 +41,10 @@ bool check(ll k) {
 	return 2 * sum >= n;
 }
 
+/* Let k0 = number of candies Vasya will eat everyday, and a0 is the amount of candies remain after day i. 
+If we take k > k0 => Candies remain = a < a0 => Petya will eat less than he could initially. => In total, Petya will eat less and Vasya will eat more eventually.  
+
+*/
 void solve(){
 	scanf("%lld", &n);
 	ll low = 1;
