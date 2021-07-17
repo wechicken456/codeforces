@@ -31,8 +31,8 @@ ll my_ceil(ll a, ll b) {
 void solve(){
 	int n;
 	cin >> n;
-	string s1,s2;
-	cin >> s1 >> s2 ;
+	string s[2];
+	cin >> s[0] >> s[1];
 	int row = 0,  col;
 	for (col = 0 ; col  < n; col++){
 		if (s1[row][col] >= '3') {
