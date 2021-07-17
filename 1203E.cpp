@@ -35,7 +35,7 @@ void solve(){
 	for (int i = 0, x; i < n; i++){
 		scanf("%d", &x);
 		s.insert(x);
-		s.insert(x + 1)
+		s.insert(x + 1);
 		if (x - 1 > 0) s.insert( x- 1);
 	}
 	printf("%d", s.size());
