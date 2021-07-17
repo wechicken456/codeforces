@@ -59,6 +59,14 @@ void solve(){
 					cnt++;
 					continue;
 				}
+				else {
+					int u = lower_bound(boxer, boxer + n, boxer[i]) - boxer;
+					if (u == i) continue;
+					else {
+						boxer[i]++;
+						cnt++;
+					}
+				}
 			}
 			else {
 				auto it = lower_bound(boxer, boxer + n, boxer[i] + 1);
