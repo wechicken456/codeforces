@@ -30,7 +30,7 @@ ll my_ceil(ll a, ll b) {
 
 const int maxN = 1.5e6;
 int boxer[maxN];
-int diff[maxN];
+int diff;
 
 void solve(){
 	int n;
@@ -44,8 +44,8 @@ void solve(){
 	set<int>ans;
 	int cnt = 1;
 	for (int i = 1 ; i < n; i++){
-		diff[i] = boxer[i] - boxer[i-1];
-		if (diff[i] > 0) {
+		diff = boxer[i] - boxer[i-1];
+		if (diff > 0) {
 			last = boxer[i - 1];
 			cnt++;
 		}
@@ -59,9 +59,10 @@ void solve(){
 				cnt++;
 			}
 			else {
-				auto it = lower_bound(boxer.begin(), boxer.end(), boxer[i] + 1);
-				if (it == boxer.end() || *it != boxer[i] + 1) {
+				auto it = lower_bound(boxer, boxer + n, boxer[i] + 1);
+				if (it == boxer + n || *it != boxer[i] + 1) {
 					boxer[i]++;
+					last = boxer[i];
 					cnt++;
 				}
 				else {
