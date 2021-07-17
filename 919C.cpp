@@ -34,10 +34,9 @@ bool check(ll k) {
 	ll cur = n;
 	ll sum = 0;
 	while (cur > 0) {
+		sum += min(cur, k);
 		cur -= k;
 		cur -= cur / 10;
-		if (cur > 0) sum += k;
-		else sum += k + cur;
 	}
 	return 2 * sum >= n;
 }
