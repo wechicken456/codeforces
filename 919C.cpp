@@ -43,12 +43,20 @@ bool check(ll k) {
 
 void solve(){
 	scanf("%lld", &n);
-	for (ll i = 1; i <= n; i++){
-		if (check(i)) {
-			printf("%lld\n", i);		
-			return;
+	ll low = 1;
+	ll high = n;
+	ll ans = 1;
+	while (low <= high) {
+		ll mid = low + (high - low) /2;
+		if (check(mid)) {				// sum*2 >= n
+			ans = mid;
+			high = mid - 1;
+		}
+		else {
+			low = mid + 1;
 		}
 	}
+	printf("%lld\n", ans);
 }
 
 int main(){
