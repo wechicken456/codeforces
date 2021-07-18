@@ -34,12 +34,12 @@ int dp[maxN + 1][3];
 void solve(){
 	int n;
 	scanf("%d", &n);
-	vector<pair<int, int>>trees(n+1);
+	vector<pair<ll, ll>>trees(n+1);
 	for (int i = 0,x,h; i < n; i++){
 		scanf("%d %d", &trees[i].first, &trees[i].second);
 	}
 	if (n > 2) {
-		int last = trees[0].first, ans= 0;
+		ll last = trees[0].first, ans= 0;
 		for (int i = 1; i < n - 1; i++){
 			if (trees[i].first - trees[i].second > last) {
 				last = trees[i].first;
@@ -50,7 +50,7 @@ void solve(){
 				ans++;
 			}
 		}
-		printf("%d\n", ans + 2);
+		printf("%lld\n", ans + 2);
 	}
 	else {
 		printf("%d\n", n);
