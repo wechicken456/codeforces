@@ -35,8 +35,8 @@ void solve(){
 	int n;
 	scanf("%d", &n);
 	vector<pair<ll, ll>>trees(n+1);
-	for (int i = 0,x,h; i < n; i++){
-		scanf("%d %d", &trees[i].first, &trees[i].second);
+	for (int i = 0; i < n; i++){
+		scanf("%lld %lld", &trees[i].first, &trees[i].second);
 	}
 	if (n > 2) {
 		ll last = trees[0].first, ans= 0;
