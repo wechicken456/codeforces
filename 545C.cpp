@@ -46,9 +46,9 @@ void solve(){
 				last = trees[i].first;
 				ans++;
 			}
-			else if (trees[i].first + trees[i].second < trees[i + 1].first) {
-				ans++;
+			else {
 				last = trees[i].first + trees[i].second;
+				ans++;
 			}
 		}
 		printf("%d\n", ans + 2);
