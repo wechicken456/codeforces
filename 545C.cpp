@@ -41,7 +41,6 @@ void solve(){
 	if (n > 2) {
 		int last = trees[0].first, ans= 0;
 		for (int i = 1; i < n - 1; i++){
-			if (trees[i].first <= last) continue; 
 			if (trees[i].first - trees[i].second > last) {
 				last = trees[i].first;
 				ans++;
