@@ -46,7 +46,7 @@ void solve(){
 				last = trees[i].first;
 				ans++;
 			}
-			else {
+			else if (trees[i].first + trees[i].second < trees[i+1].first){
 				last = trees[i].first + trees[i].second;
 				ans++;
 			}
