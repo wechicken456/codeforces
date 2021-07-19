@@ -49,7 +49,10 @@ void solve(){
 				last = trees[i].first + trees[i].second;
 				ans++;
 			}
-		}
+			else {
+				last= trees[i].first;
+			}
+		}		
 		printf("%lld\n", ans + 2);
 	}
 	else {
