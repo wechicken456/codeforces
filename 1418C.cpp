@@ -29,7 +29,7 @@ ll my_ceil(ll a, ll b) {
 }
 
 const int maxN = 2e5;
-int dp[maxN + 1];
+int dp[maxN + 1][2]; 	// 0 for friend, 1 for myself.
 
 void solve(){
 	fill(dp, dp + maxN + 1, 0);
@@ -37,9 +37,16 @@ void solve(){
 	scanf("%d", &n);
 	vector<int>a(n + 1);
 	for (int i = 1; i <=  n ; i++){
-		scanf("%d", &a[i]):
+		scanf("%d", &a[i]);
 	}	
-	dp[1] = (a[1] == 1);
+	dp[1][0] = (a[1] == 1);
+	for (int i = 2; i <= n; i++){
+		int cur = (a[i] == 1);
+		dp[i][0] = min(dp[i-1][0] + cur, dp[i-2][1]);
+		dp[i][1] = min(dp[i-1][1], dp[i-2][0]);
+	}
+	int ans = min(dp[n][0], dp[n][1]);
+	printf("%d\n", ans);
 }
 
 int main(){
