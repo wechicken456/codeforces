@@ -28,36 +28,16 @@ ll my_ceil(ll a, ll b) {
 	return (a/b) + ( (a%b)!=0 );
 }
 
-const int maxN = 2e5;
-
 void solve(){
-	
-	int him[maxN + 1];
-	int me[maxN  +1];
-	int n;
-	scanf("%d", &n);
-	vector<int>a(n + 1);
-	for (int i = 1; i <=  n ; i++){
-		scanf("%d", &a[i]);
-	}	
-	him[0] = me[0] = him[1] = me[1] = a[1]== 1;
-	for (int i = 2; i <= n ; i++) {
-		him[i] = me[i-1] + a[i];
-		me[i] = him[i-1];
-		if (i - 2 >= 0){ 
-			him[i] = min (him[i], me[i-2] + a[i-1] + a[i]);
-			me[i] = min(me[i], him[i-2]);
-		}
-			
-	}
-	int ans = min(him[n] , me[n]);
-	printf("%d\n", ans);
+
 }
 
 int main(){
-	int t;
-	scanf("%d", &t);
-	while (t--) {
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	int T;
+	cin >> T;
+	while (T--){
 		solve();
 	}
 }

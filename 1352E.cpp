@@ -28,36 +28,39 @@ ll my_ceil(ll a, ll b) {
 	return (a/b) + ( (a%b)!=0 );
 }
 
-const int maxN = 2e5;
-
 void solve(){
-	
-	int him[maxN + 1];
-	int me[maxN  +1];
 	int n;
+	int a[8001];
+	int prefix_sum[8001];
+	vector<bool>special(8001, false);
+	prefix_sum[0] = 0;
 	scanf("%d", &n);
-	vector<int>a(n + 1);
-	for (int i = 1; i <=  n ; i++){
+	for (int i = 0 ; i < n ; i++ ) {
 		scanf("%d", &a[i]);
-	}	
-	him[0] = me[0] = him[1] = me[1] = a[1]== 1;
-	for (int i = 2; i <= n ; i++) {
-		him[i] = me[i-1] + a[i];
-		me[i] = him[i-1];
-		if (i - 2 >= 0){ 
-			him[i] = min (him[i], me[i-2] + a[i-1] + a[i]);
-			me[i] = min(me[i], him[i-2]);
-		}
-			
+		prefix_sum[i+1] = prefix_sum[i]  + a[i];
 	}
-	int ans = min(him[n] , me[n]);
+	if (n < 3) {
+		puts("0");
+		return;
+	}
+	
+	int ans = 0;
+	for (int i = 0 ; i < n -1 ; i++){
+		for(int j = i + 2 ; j <= n && prefix_sum[j] - prefix_sum[i] <= n; j++){
+			special[prefix_sum[j] - prefix_sum[i]] = true;
+		}
+	}
+	for (int i = 0 ; i < n; i++){
+		
+		ans += special[a[i]];
+	}
 	printf("%d\n", ans);
 }
 
 int main(){
-	int t;
-	scanf("%d", &t);
-	while (t--) {
+	int T;
+	scanf("%d" , &T);
+	while (T--) {
 		solve();
 	}
 }
