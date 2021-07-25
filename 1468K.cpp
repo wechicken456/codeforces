@@ -29,7 +29,51 @@ ll my_ceil(ll a, ll b) {
 }
 
 void solve(){
-
+	string s;
+	cin >> s;
+	int n = s.length();
+	pair<int, int>end = {0, 0};
+	vector<pair<int ,int>>block(n);
+	
+	auto  change = [](pair<int ,int> &p, char x) {
+		if (x == 'L') {
+			p.first--;
+		}
+		else if (x == 'R') {
+			p.first++;
+		}
+		else if (x == 'U') {
+			p.second++;
+		}
+		else if (x == 'D') {
+			p.second--;
+		}
+	};
+	
+	for (int i = 0 ; i < n; i++ ) {
+		change(end, s[i]);
+		block[i] = end;
+	}
+	
+	map<char, char>counter;
+	counter['L'] = 'R';
+	counter['R'] = 'L';
+	counter['U'] = 'D';
+	counter['D'] = 'U';
+	for (int i = 0; i < n; i++) {
+		pair<int, int>cur = {0,0};
+		for (int j = 0; j < n; j++){
+			change(cur, s[j]);
+			if (cur.first == block[i].first && cur.second == block[i].second) {
+				change(cur, counter[s[j]]);
+			}
+		}
+		if (cur == make_pair(0, 0)) {
+			cout << block[i].first << " " << block[i].second << "\n";
+			return;
+		}
+	}
+	cout << "0 0\n";
 }
 
 int main(){
