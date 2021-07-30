@@ -73,11 +73,10 @@ void solve(){
 	if (n % 2 == 0 && m % 2 == 0) {
 		if (k % 2 == 0) {
 			check = true;
-			// PROCESS ANSWER HERE
 			int row = 0, col = 0, cur =0;
-			while (k > 0) {
-				ans[row][col] = cur % 26;
-				ans[row][col + 1] = cur % 26;
+			while (k > 0) {		// use all horizontals
+				ans[row][col] = cur;
+				ans[row][col + 1] = cur;
 				k--;
 				row++;
 				cur ^= 1;
@@ -96,12 +95,12 @@ void solve(){
 			 k -= per_row;
 			 if (k % 2 == 0) {
 				bool flip = false;
-				for (int i = 0 ; i < m ; i += 2) {
+				for (int i = 0 ; i < m ; i += 2) {	// fill the last row with horizontals
 					 if (flip) ans[n-1][i] = ans[n-1][i + 1] = 5;
 					 else ans[n-1][i] = ans[n-1][i + 1] = 6;
 					 flip ^= 1;
 				}
-				n -= 1;
+				n -= 1;		
 				check = true;
 				int row = 0, col = 0, cur =0;
 				while (k > 0) {
@@ -117,7 +116,7 @@ void solve(){
 					}
 				}
 				compile_grid(row , col);
-				n++;
+				n++;	// give back the decremented last row
 			 }
 		}
 	}
@@ -125,7 +124,7 @@ void solve(){
 		if (k % 2 == 0 && k <= n*m/2 - n / 2) {
 			check = true;
 			int row = 0, col = 0, cur =0;
-			while (k > 0) {
+			while (k > 0) {							// use all horizontals
 				ans[row][col] = cur % 26;
 				ans[row][col + 1] = cur % 26;
 				k--;
@@ -138,12 +137,10 @@ void solve(){
 				}
 			}
 			compile_grid(row , col);
-			// PROCESS ANSWER HERE
 		}
 	}
 	if (check) {
 		puts("YES");
-		// PROCESS ANSWER HERE
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m ; j++) {
 				printf("%c", 'a' + ans[i][j]);
