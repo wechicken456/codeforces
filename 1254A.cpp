@@ -72,11 +72,12 @@ void solve(){
 			}
 			else {
 				ans[cur_row][cur_col] = cur_char;
-				//cur_rice++;
 			}
 		}
 		cur_col += direction;
-		if (cur_col < 0) {
+		
+		// whenever we go over the edge, move down 1 row and change direction
+		if (cur_col < 0) {				
 			cur_col = 0;
 			cur_row++;
 			direction *= -1;
@@ -88,6 +89,8 @@ void solve(){
 		}
 		count_cells++;
 	}
+	
+	// print answer
 	for (int i = 0 ; i < r;i ++) {
 		for (int j = 0 ; j < c; j++) {
 			printf("%c", s[ans[i][j]]);
