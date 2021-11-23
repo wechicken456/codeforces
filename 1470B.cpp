@@ -55,15 +55,27 @@ void solve() {
 	}
 	
 	int max_bef = -1;
+<<<<<<< HEAD
 	int class_of_1 = m[1];	
 	for (auto &c : m) {
 		if (c.second > max_bef) max_bef = c.second;
+=======
+	for (auto &c : m) {
+		if (c.second > max_bef) max_bef = c.second;
+	}
+	
+	int class_of_1 = m[1];
+	for (auto &c : m ) {
+>>>>>>> 16468dc6e8ade9735070c67e6580155ebe0dc8d3
 		if (c.second % 2 == 0 && c.first != 1) {
 			class_of_1 += c.second;
 		}
 	}
 	
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 16468dc6e8ade9735070c67e6580155ebe0dc8d3
 	int nq;
 	scanf("%d", &nq);
 	while (nq--) {
