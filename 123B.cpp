@@ -33,15 +33,22 @@ void solve(){
 }
 
 int main(){
-	/*
+	
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
-	*/
-	int T;
-	scanf("%d", &T);
-	while (T--){
-		solve();
-	}
+	ll a, b, x1, y1, x2, y2;
+	cin >> a >> b >> x1 >> y1 >> x2 >> y2;
+	
+	ll diff_1 = (x1 - y1) / (2*b);
+	if (x1 - y1 < 0) diff_1--;
+	ll diff_2 = (x2 - y2) / (2*b);
+	if (x2 - y2 < 0) diff_2--;
+	ll sum_1 =  (x1 + y1) / (2*a);
+	if (x1 + y1 < 0) sum_1--;
+	ll sum_2 = (x2 + y2) / (2*a);
+	if (x2 + y2 < 0) sum_2--;
+	
+	cout << max(abs(diff_1-diff_2), abs(sum_1-sum_2));
 }
 
 
