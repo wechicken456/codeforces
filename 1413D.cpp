@@ -14,15 +14,9 @@
 #define ull unsigned long long
 #define pb push_back
 #define mp make_pair
-#define pii pair<int, int>
-#define pll pair<ll, ll>
-#define vll vector<ll>
-#define vvll vector<vector<ll>>
-#define vb vector<bool>
 
 using namespace std;
 
-/*
 ull power(ll x, ull y) {
     if (y == 0)
         return 1;
@@ -86,7 +80,7 @@ void update(int pos, ll value){
 
 
 
-//		Shortest path between any pairs
+/*		Shortest path between any pairs
 int dist[maxN][maxN];
 void compute_shortest_path() {
 	// essentially we start at city j, go to city k through city i.
@@ -98,9 +92,9 @@ void compute_shortest_path() {
 		}
 	}
 }
+*/
 
-
-//	Shortest path between one node and others
+/* Shortest path between one node and others
 vector<int>adj[maxN];
 // find shortest path using Dijkstra's algorithm
 priority_queue<pair<ull,int>>q; 		// default sort by first element in pairs
@@ -121,26 +115,42 @@ while (!q.empty()) {
 	}
 }
 */
-
-
 void solve() {
+	scanf("%d", &n);
+	vector<int>a(n);
+	vector<int>ans(n);y 
+	int cnt = 0;
+	getc(stdin);
+	for (int i = 0 ; i < 2*n; i++) {
+		char c;
+		c = getchar();
+		if (c == '+') {
+			cnt++;
+		}
+		else {
+			int num;
+			scanf(" %d",&num); 
+		}
+		getc(stdin);
+	}
 	
 }
 
 int main(){
-	
 	/*
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
-	
+	*/
 	
 	/*
 	int T;
-	cin >> T;
+	scanf("%d", &T);
 	while (T--) {
 		solve();
 	}
 	*/
+	
+	solve();
 	
 }
 

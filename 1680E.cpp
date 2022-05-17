@@ -124,23 +124,61 @@ while (!q.empty()) {
 
 
 void solve() {
+	int n;
+	cin >> n;
+	vector<vector<int>>cost(2, vector<int>(n));
+	for (int j = 0 ; j < 2; j++) {
+		for (int i = 0 ;i < n; i++) {
+			char c;
+			cin >> c;
+			cost[j][i] = (c == '*');
+		}
+	}
+	
+	// trim all spare columns from beginning and end
+	for (int j = 0 ; j < 2; j++) {
+		for (int i = n - 1 ; i > 0; i--) {
+			if (cost[0][i] + cost[1][i] == 0) {
+				cost[0].pop_back();
+				cost[1].pop_back();
+				n--;
+			} else break;
+		}
+		reverse(cost[0].begin(), cost[0].end());
+		reverse(cost[1].begin(), cost[1].end());
+	}
+	
+	
+	
+	vector<vector<int>>dp(2, vector<int>(n, 999999));
+	dp[0][0] = (cost[1][0] == 1);
+	dp[1][0] = (cost[0][0] == 1);
+	
+	for (int i = 0; i < n - 1; i++) {
+		dp[0][i + 1] = min(dp[0][i + 1], dp[0][i] + 1 + cost[1][i + 1]);
+		dp[0][i + 1] = min(dp[0][i + 1], dp[1][i] + 2);
+		dp[1][i + 1] = min(dp[1][i + 1], dp[1][i] + 1 + cost[0][i + 1]);
+		dp[1][i + 1] = min(dp[1][i + 1], dp[0][i] + 2);	
+	}
+	cout << min(dp[0][n-1], dp[1][n-1]) << "\n";
+	return;
 	
 }
 
 int main(){
 	
-	/*
+	
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

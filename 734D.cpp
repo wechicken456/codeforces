@@ -16,13 +16,9 @@
 #define mp make_pair
 #define pii pair<int, int>
 #define pll pair<ll, ll>
-#define vll vector<ll>
-#define vvll vector<vector<ll>>
-#define vb vector<bool>
 
 using namespace std;
 
-/*
 ull power(ll x, ull y) {
     if (y == 0)
         return 1;
@@ -86,7 +82,7 @@ void update(int pos, ll value){
 
 
 
-//		Shortest path between any pairs
+/*		Shortest path between any pairs
 int dist[maxN][maxN];
 void compute_shortest_path() {
 	// essentially we start at city j, go to city k through city i.
@@ -98,9 +94,9 @@ void compute_shortest_path() {
 		}
 	}
 }
+*/
 
-
-//	Shortest path between one node and others
+/*	Shortest path between one node and others
 vector<int>adj[maxN];
 // find shortest path using Dijkstra's algorithm
 priority_queue<pair<ull,int>>q; 		// default sort by first element in pairs
@@ -122,25 +118,113 @@ while (!q.empty()) {
 }
 */
 
-
 void solve() {
-	
+	scanf("%d", &n);
+	ll king_x, king_y;
+	scanf("%lld %lld", &king_x, &king_y);
+	ll up = 3e9, down = -3e9, right = 3e9, left = -3e9;
+	ll up_right = 3e9, up_left = 3e9, down_right= 3e9, down_left= 3e9;
+	bool check_up, check_down, check_right, check_left, check_upright, check_upleft,check_downright,check_downleft;
+	check_up = check_down = check_right = check_left = check_upright = check_upleft = check_downright = check_downleft = false;
+	for (int i = 0 ; i < n; i++) {
+		ll x ,y ;
+		char piece;
+		getc(stdin);
+		piece = getc(stdin);
+		scanf(" %lld %lld", &x, &y);
+		ll diff_x = x - king_x, diff_y = y - king_y;
+		// check vertical
+		if (x == king_x) {
+			if (y > king_y) {
+				if (y < up) {
+					up = y;
+					if (piece == 'Q' || piece == 'R') check_up = true;
+					else check_up = false;
+				}
+			}
+			else {
+				if (y > down) {
+					down = y;
+					if (piece == 'Q' || piece == 'R') check_down = true;
+					else check_down = false;
+				}
+			}
+		}
+		// check horizontal
+		else if (y == king_y) {
+			if (x > king_x) {
+				if (x < right) {
+					right = x;
+					if (piece == 'Q' || piece == 'R') check_right = true;
+					else check_right = false;
+				}
+			}
+			else {
+				if (x > left) {
+					left = x;
+					if (piece == 'Q' || piece == 'R') check_left = true;
+					else check_left = false;
+				}
+			}
+		}
+		
+		// check diagonal
+		else if (abs(diff_x) == abs(diff_y)){
+			
+			// check up_right
+			if (diff_x > 0 && diff_y > 0) {
+				if (diff_x < up_right) {
+					up_right = diff_x;
+					if (piece == 'Q' || piece == 'B') check_upright = true;
+					else check_upright = false;
+				}
+			}
+			// check up_left
+			else if (diff_x < 0 && diff_y > 0) {
+				if (diff_y < up_left) {
+					up_left = diff_y;
+					if (piece == 'Q' || piece == 'B') check_upleft = true;
+					else check_upleft = false;
+				}
+			}
+			// check down_left
+			else if (diff_x < 0 && diff_y < 0) {
+				if (abs(diff_x) < down_left) {
+					down_left = abs(diff_x);
+					if (piece == 'Q' || piece == 'B') check_downleft = true;
+					else check_downleft = false;
+				}
+			}
+			// check down_right
+			else {
+				if (diff_x < down_right) {
+					down_right= diff_x;
+					if (piece == 'Q' || piece == 'B') check_downright = true;
+					else check_downright = false;
+				}
+			}
+		}
+		
+	}
+	if (check_left || check_right || check_up || check_down || check_upleft || check_upright || check_downleft || check_downright) puts("YES");
+	else puts("NO");
 }
 
 int main(){
-	
 	/*
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
-	
+	*/
 	
 	/*
 	int T;
-	cin >> T;
+	scanf("%d", &T);
 	while (T--) {
 		solve();
 	}
 	*/
+	
+	solve();
 	
 }
 

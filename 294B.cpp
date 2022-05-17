@@ -16,13 +16,9 @@
 #define mp make_pair
 #define pii pair<int, int>
 #define pll pair<ll, ll>
-#define vll vector<ll>
-#define vvll vector<vector<ll>>
-#define vb vector<bool>
 
 using namespace std;
 
-/*
 ull power(ll x, ull y) {
     if (y == 0)
         return 1;
@@ -86,7 +82,7 @@ void update(int pos, ll value){
 
 
 
-//		Shortest path between any pairs
+/*		Shortest path between any pairs
 int dist[maxN][maxN];
 void compute_shortest_path() {
 	// essentially we start at city j, go to city k through city i.
@@ -98,9 +94,9 @@ void compute_shortest_path() {
 		}
 	}
 }
+*/
 
-
-//	Shortest path between one node and others
+/*	Shortest path between one node and others
 vector<int>adj[maxN];
 // find shortest path using Dijkstra's algorithm
 priority_queue<pair<ull,int>>q; 		// default sort by first element in pairs
@@ -122,25 +118,64 @@ while (!q.empty()) {
 }
 */
 
-
 void solve() {
+	scanf("%d", &n);
+	vector<int>arr_1;
+	vector<int>arr_2;
+	int size_1 = 0 , size_2 = 0;
+	int sum_width = 0;
+	for (int i = 0; i < n; i++) {
+		int a, b;
+		scanf("%d %d", &a, &b);
+		if ( a== 1) {
+			arr_1.pb(b);
+			size_1++;
+		}
+		else {
+			arr_2.pb(b);
+			size_2++;
+		}
+		sum_width += b;
+	}
+	sort(arr_1.begin(), arr_1.end());
+	sort(arr_2.begin(), arr_2.end());
+
+	vector<int>pref_1(size_1 + 2, 0);
+	vector<int>pref_2(size_2 + 2, 0);
+	for (int i = 0; i < size_1; i++) {
+		pref_1[i + 1] = pref_1[i] + arr_1[size_1 - i - 1];
+	}
+	for (int i = 0 ; i < size_2; i++) {
+		pref_2[i + 1] = pref_2[i] + arr_2[size_2 - i - 1];
+	}
+	
+	int ans = 1e9;
+	for (int i = 0 ; i <= size_1; i++) {
+		for (int j = 0; j <= size_2; j++) {
+			if (i + j * 2>= sum_width - pref_1[i] - pref_2[j]) {
+				ans = min(ans, i + j * 2);
+			}
+		}
+	}
+	printf("%d\n", ans);
 	
 }
 
 int main(){
-	
 	/*
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
-	
+	*/
 	
 	/*
 	int T;
-	cin >> T;
+	scanf("%d", &T);
 	while (T--) {
 		solve();
 	}
 	*/
+	
+	solve();
 	
 }
 

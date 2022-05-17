@@ -22,7 +22,6 @@
 
 using namespace std;
 
-/*
 ull power(ll x, ull y) {
     if (y == 0)
         return 1;
@@ -86,7 +85,7 @@ void update(int pos, ll value){
 
 
 
-//		Shortest path between any pairs
+/*		Shortest path between any pairs
 int dist[maxN][maxN];
 void compute_shortest_path() {
 	// essentially we start at city j, go to city k through city i.
@@ -98,9 +97,9 @@ void compute_shortest_path() {
 		}
 	}
 }
+*/
 
-
-//	Shortest path between one node and others
+/*	Shortest path between one node and others
 vector<int>adj[maxN];
 // find shortest path using Dijkstra's algorithm
 priority_queue<pair<ull,int>>q; 		// default sort by first element in pairs
@@ -122,25 +121,48 @@ while (!q.empty()) {
 }
 */
 
-
 void solve() {
+	cin >> n;
+	string s;
+	cin >> s;
 	
+	int ans = 0;
+	int tmp = 0;
+	if (s[0] == s[n-1]) {
+		tmp = 1;
+		for (int i = n - 2; i > 0 && s[i] == s[0]; i--, tmp++);
+		if (tmp == n - 1) {
+			cout << ceil((double)n / 3) << "\n";;
+			return;
+		}
+		n -= tmp;
+	}
+	
+	for (int i = 0 ; i < n; i++) {
+		int cnt = 1;
+		if (i == 0) cnt += tmp;
+		int j;
+		for (j = 1; j < n && s[(i+j) % n] == s[i]; j++, cnt++);
+		i = i + j - 1;
+		ans += floor((double)cnt / 3);
+		
+	}
+
+	cout << ans << "\n";
 }
 
 int main(){
 	
-	/*
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	
-	
-	/*
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
+	
 	
 }
 

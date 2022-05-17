@@ -16,13 +16,9 @@
 #define mp make_pair
 #define pii pair<int, int>
 #define pll pair<ll, ll>
-#define vll vector<ll>
-#define vvll vector<vector<ll>>
-#define vb vector<bool>
 
 using namespace std;
 
-/*
 ull power(ll x, ull y) {
     if (y == 0)
         return 1;
@@ -86,7 +82,7 @@ void update(int pos, ll value){
 
 
 
-//		Shortest path between any pairs
+/*		Shortest path between any pairs
 int dist[maxN][maxN];
 void compute_shortest_path() {
 	// essentially we start at city j, go to city k through city i.
@@ -98,9 +94,9 @@ void compute_shortest_path() {
 		}
 	}
 }
+*/
 
-
-//	Shortest path between one node and others
+/*	Shortest path between one node and others
 vector<int>adj[maxN];
 // find shortest path using Dijkstra's algorithm
 priority_queue<pair<ull,int>>q; 		// default sort by first element in pairs
@@ -121,26 +117,67 @@ while (!q.empty()) {
 	}
 }
 */
+vector<vector<int>>adj;
+vector<bool>visited;
+bool cycle = false;
+int ans;
+
+void dfs (int parent, int node) {
+		if (visited[node]) {
+				cycle = true;
+				return;
+		}
+		visited[node] = true;
+		for (int &temp : adj[node]) {
+			if (temp != parent) {
+				dfs(node, temp);
+			}
+		}
+}
 
 
 void solve() {
+	int m ;
+	scanf("%d %d", &n, &m);
+	ans = m;
 	
+	adj = vector<vector<int>>(n +1);
+	visited = vector<bool>(n + 1 , false);
+	
+	for (int i = 0; i < m; i++) {
+		int x ,y ;
+		scanf("%d %d", &x, &y);
+		adj[x].pb(y);
+		adj[y].pb(x);
+		if ( x == y ) { 
+			ans--;
+			visited[x] = true;
+		}
+	}
+	
+	for (int i = 1; i <= n ; i++) {
+		cycle = false;
+		if (!visited[i]) dfs(0, i);
+		if (cycle) ans++;
+	}
+	printf("%d\n", ans);
 }
 
 int main(){
-	
 	/*
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
+	*/
 	
 	
-	/*
 	int T;
-	cin >> T;
+	scanf("%d", &T);
 	while (T--) {
 		solve();
 	}
-	*/
+	
+	
+	//solve();
 	
 }
 

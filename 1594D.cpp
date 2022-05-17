@@ -22,7 +22,6 @@
 
 using namespace std;
 
-/*
 ull power(ll x, ull y) {
     if (y == 0)
         return 1;
@@ -86,7 +85,7 @@ void update(int pos, ll value){
 
 
 
-//		Shortest path between any pairs
+/*		Shortest path between any pairs
 int dist[maxN][maxN];
 void compute_shortest_path() {
 	// essentially we start at city j, go to city k through city i.
@@ -98,9 +97,9 @@ void compute_shortest_path() {
 		}
 	}
 }
+*/
 
-
-//	Shortest path between one node and others
+/*	Shortest path between one node and others
 vector<int>adj[maxN];
 // find shortest path using Dijkstra's algorithm
 priority_queue<pair<ull,int>>q; 		// default sort by first element in pairs
@@ -122,25 +121,123 @@ while (!q.empty()) {
 }
 */
 
+vb visited;
+vb count_visited;
+vll to;
+vector<vector<pll>> adj;
+vll parity;
+int ans;
+
+int dfs(int node, int par) {
+	if (visited[node]) {
+		if (par != parity[node]) return -1;
+		return 0;
+	}
+	visited[node] = true;
+	parity[node] = par;
+	
+	for (auto &next : adj[node]) {
+		int res = dfs(next.first, par * next.second);
+		if (res == -1) return -1;
+	}
+	return 0;
+} 
+
+int count_dfs(int node) {
+	if (count_visited[node]) {
+		return 0;
+	}
+	count_visited[node] = true;
+	int sum = (parity[node] == -1);
+	for (auto &next : adj[node]) {
+		sum += count_dfs(next.first);
+	}
+	return sum;
+}
+
+void clean (int node) {
+	if (!visited[node]) return;
+	visited[node] = false;
+	count_visited[node] = false;
+	parity[node] = 1;
+	for (auto &next : adj[node]) {
+		clean(next.first);
+	}
+}
 
 void solve() {
+	int m;
+	cin >> n >> m;
+	visited = vb(n + 1, false);
+	count_visited = vb(n + 1, false);
+	adj = vector<vector<pll>>(n + 1);
+	parity = vll(n + 1, 1);
+	to = vll(n + 1, 0);
+	ans = 0;
 	
+	for (int i = 0 ; i < m; i++) {
+		int a, b, c = 1 ;
+		string s;
+		cin >> a >> b >> s;
+		if (s == "imposter") c = -1;
+		adj[a].pb(mp(b, c));
+		to[b]++;
+	}
+	
+	int first_round = 0;
+	for (int i = 1; i <= n; i++) {
+		if (to[i] == 0) {
+			if (adj[i].size() == 0) {
+				visited[i] = true;
+				first_round++;
+				continue;
+			}
+			int check_1 = dfs(i ,1);
+			int res_1 = count_dfs(i);
+			clean(i);
+			int check_2 = dfs(i , -1);
+			int res_2 = count_dfs(i);
+			if (check_1 == -1 && check_2 == -1) {
+				cout << "-1\n";
+				return;
+			}
+			else first_round += max(res_1, res_2);
+		}
+	}
+	ans = first_round;
+	for (int i = 1; i <= n; i++) {
+		if (!visited[i]) {
+			int check_1 = dfs(i , 1);
+			int res_1 = count_dfs(i);
+			clean(i);
+			int check_2 = dfs(i , -1);
+			int  res_2 = count_dfs(i);
+			if (check_1 == -1 && check_2 == -1) {
+				cout << "-1\n";
+				return;
+			}
+			else ans += max(res_1, res_2);
+		}
+	}
+	cout << ans << "\n";
 }
 
 int main(){
 	
-	/*
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	
 	
 	/*
 	int T;
-	cin >> T;
+	scanf("%d", &T);
 	while (T--) {
 		solve();
 	}
 	*/
+	int T;
+	cin >> T;
+	while (T--) solve();
 	
 }
 
