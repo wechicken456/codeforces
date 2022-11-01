@@ -10,7 +10,7 @@
 #define vvll vector<vector<ll>>
 #define vb vector<bool>
 
-
+using namespace std;
 
 /*
 ull power(ll x, ull y) {
@@ -114,6 +114,49 @@ while (!q.empty()) {
 
 
 void solve() {
+	int n , q;
+	cin >> n >> q;
+	vll a(n);
+	vll sum(n + 1, 0);
+	vll xors(n + 1, 0);
+	
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
+		sum[i + 1] = sum[i] + a[i];
+		xors[i + 1] = xors[i] ^ a[i];
+		//cout << sum[i + 1] << " " << xors[i +1] << "\n";
+	}
+	
+	vector<pll> vp;
+	for (int i = 0 ; i < q; i++) {
+		int l,r;
+		cin >> l >> r;
+		l--;
+		r--;
+		vp.pb({l, r});
+		ll ans = -1e9, max_length = 1e9, max_l = 0, max_r = 0;
+		for (int j = l; j <= r; j++) {
+			for (int k = j; k <= r; k++) {
+				
+				if (ans < sum[k + 1] - sum[j] - (xors[k+1]^xors[j])) {
+					ans = sum[k + 1] - sum[j] - (xors[k+1]^xors[j]);
+					
+					max_length = k - j + 1;
+					max_l = j;
+					max_r = k;
+				}
+				else if (ans == sum[k + 1] - sum[j] - (xors[k+1]^xors[j])) {
+					if (k - j + 1 < max_length) {
+						max_length = k - j + 1;
+						max_l = j;
+						max_r = k;
+					} 
+				}
+				
+			}
+		}
+		cout << max_l + 1 << " " << max_r + 1 << "\n";
+	}
 	
 }
 
@@ -124,13 +167,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

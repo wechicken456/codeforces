@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 
+using namespace std;
 #define ll long long
 #define ull unsigned long long
 #define pb push_back
@@ -114,7 +115,36 @@ while (!q.empty()) {
 
 
 void solve() {
-	
+	int n ;
+	cin >> n;
+	string s;
+	cin >> s;
+	int ans = 0;
+	bool check_1 = false;
+	int cnt_0 = 0;
+	for (int i = 0 ; i <n ;i++) {
+		if (s[i] == '1') {
+			check_1 = true;
+		}
+		else {
+			if (check_1) {
+				int j ;
+				for (j = i; j < n ;j ++) {
+					if (s[j] == '1') break;
+				}
+				cnt_0++;
+				i = j - 1;
+			}
+		}
+	}
+	if (s[n-1] == '0') {
+		if (cnt_0 > 0)
+			cout << cnt_0*2 - 1 << "\n";
+		else cout << 0 << "\n";
+	}
+	else {
+		cout << cnt_0*2 << "\n";
+	}
 }
 
 int main(){
@@ -124,13 +154,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

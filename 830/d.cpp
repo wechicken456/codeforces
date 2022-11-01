@@ -10,7 +10,7 @@
 #define vvll vector<vector<ll>>
 #define vb vector<bool>
 
-
+using namespace std;
 
 /*
 ull power(ll x, ull y) {
@@ -124,13 +124,39 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
 	int T;
 	cin >> T;
+	map<ull, bool>m;
+	map<ull, ull>b;
 	while (T--) {
-		solve();
+		char c;
+		cin >> c;
+		ull x;
+		cin >> x;
+		if (c == '+') {
+			m[x] = true;
+			/*for (ull i = 2; i*i <= x; i++) {
+				if (x % i == 0){
+					m[i] = true;
+					while (x % i == 0) {
+						x /= i ;
+					}
+				}
+			}*/
+		}
+		else {
+			ull i = 1;
+			if (b[x] > 0) {
+				i = b[x];
+			}
+			while (m[x*i]) {
+					i++;
+			}
+			b[x] = i;
+			cout << b[x]*x << "\n";
+		}
 	}
-	*/
+	
 	
 }
 

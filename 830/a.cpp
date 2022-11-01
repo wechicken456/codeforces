@@ -114,6 +114,12 @@ while (!q.empty()) {
 
 
 void solve() {
+	int n;
+	cin >> n;
+	vector<int>a(n);
+	for (int i = 0 ; i < n; i++){
+		cin >> a[i];
+	}
 	
 }
 
@@ -124,13 +130,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 
