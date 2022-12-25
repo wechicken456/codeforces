@@ -114,7 +114,39 @@ while (!q.empty()) {
 
 
 void solve() {
+	int n;
+	cin >> n;
+	string s;
+	cin >> s;
 	
+	vector<int>uniq;
+	map<char, int>cnt;
+	vector<vector<int>>pref_digit(10, vector<int>(n, 0));
+	/*
+	for (int i = 0 ; i < n ; i++) {
+		cnt[s[i]]++;
+		if (i == 0) {
+			uniq[0] = 1;
+			pref_digit[s[i] - '0'][0] = 1;
+		}
+		else {
+			uniq[i] = uniq[i-1];
+			for (int j = 0 ; j < 10; j++) {
+				pref_digit[j][i] = pref_digit[j][i-1];
+				if (s[i] - '0' == j) pref_digit[j][i]++;
+			}
+		}
+	
+		if (cnt[s[i]] == 1) {
+			uniq[i]++;
+		}
+	}
+	*/
+	for (int i = 0 ;i < n; i++) {
+		for (int j = 0 ; j < n; j++) {
+			
+		}
+	}
 }
 
 int main(){
@@ -124,13 +156,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

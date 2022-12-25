@@ -10,7 +10,7 @@
 #define vvll vector<vector<ll>>
 #define vb vector<bool>
 
-using namespace std;
+
 
 /*
 ull power(ll x, ull y) {

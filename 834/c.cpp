@@ -10,7 +10,7 @@
 #define vvll vector<vector<ll>>
 #define vb vector<bool>
 
-using namespace std;
+
 
 /*
 ull power(ll x, ull y) {
@@ -111,10 +111,45 @@ while (!q.empty()) {
 	}
 }
 */
-
+using namespace std;
 
 void solve() {
+	ll l, r ,x;
+	cin >> l >> r >> x;
+	ll a, b;
+	cin >> a >> b;
+	if (b == a) {
+		cout << 0 << "\n";
+		return;
+	}
+
 	
+	if (abs(b - a) - x >= 0) {
+		cout << 1 << "\n";
+		return;
+	}
+	
+	if ((a + x > r && a - x < l) || (abs(b - l) < x && abs(b -r ) < x)) {
+		cout << -1 << "\n";
+		return;
+	}
+	
+	if (a < b) {
+		if (a - x >= l || b + x <= r) {
+			cout << 2 << "\n";
+		}
+		else {
+			cout << 3 << "\n";
+		}
+	}
+	else {
+		if (a + x <= r || b - x >= l) {
+			cout << 2 << "\n";
+		}
+		else {
+			cout << 3 << "\n";
+		}
+	}
 }
 
 int main(){
@@ -124,13 +159,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

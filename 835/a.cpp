@@ -10,7 +10,7 @@
 #define vvll vector<vector<ll>>
 #define vb vector<bool>
 
-using namespace std;
+
 
 /*
 ull power(ll x, ull y) {
@@ -112,8 +112,12 @@ while (!q.empty()) {
 }
 */
 
-
+using namespace std;
 void solve() {
+	vector<int>a(3);
+	cin >> a[0] >> a[1] >> a[2];
+	sort(a.begin(), a.end());
+	cout << a[1] << "\n";
 	
 }
 
@@ -124,13 +128,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

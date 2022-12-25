@@ -114,7 +114,53 @@ while (!q.empty()) {
 
 
 void solve() {
+	int n;
+	cin >> n;
+	vector<int>a(n);
+	vector<int>b(n);
+	map<int, int>cnt_a;
+	map<int, int>cnt_b;
+	multiset<pair<int, int>>p_a, p_b;
+	for (int i = 0 ;i < n; i++) {
+		cin >> a[i];
+		cnt_a[a[i]]++;
+	}
+	for (int i = 0; i < n; i++) {
+		cin >> b[i];
+		cnt_b[b[i]]++;
+	}
+	if (cnt_a.size() != cnt_b.size()) {
+		cout << "no\n";
+		return;
+	}
+	if (n % 2 == 1 && a[n/2] != b[n/2]) {
+		cout << "no\n";
+		return;
+	}
+	for (auto &p : cnt_a) {
+		if (cnt_b[p.first] != p.second) {
+			cout << "no\n";
+			return;
+		}
+	}
 	
+	for (int i = 0 ; i < n / 2; i++) {
+		if (a[i] > a[n-i-1]) swap(a[i], a[n-i-1]);
+		if (b[i] > b[n-i-1]) swap(b[i], b[n-i-1]);
+		p_a.insert({a[i], a[n-i-1]});
+		p_b.insert({b[i], b[n-i-1]});
+	}
+	multiset<pair<int, int>>::iterator it_b;
+	it_b = p_b.begin();
+	for (auto &p : p_a) {
+		if (p != *it_b) {
+			cout << "no\n";
+			return;
+		}
+		it_b++;
+	}
+	cout << "yes\n";
+	return;
 }
 
 int main(){
@@ -124,13 +170,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

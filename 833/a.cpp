@@ -114,7 +114,13 @@ while (!q.empty()) {
 
 
 void solve() {
-	
+	int n;
+	cin >> n;
+	if (n == 1) cout << 1 << "\n";
+	else if (n == 2) cout << 1 << "\n";
+	else {
+		 cout << (ll)ceil((double)n /2 ) << "\n";
+	}
 }
 
 int main(){
@@ -124,13 +130,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

@@ -12,6 +12,7 @@
 
 using namespace std;
 
+
 /*
 ull power(ll x, ull y) {
     if (y == 0)
@@ -114,7 +115,25 @@ while (!q.empty()) {
 
 
 void solve() {
+	string s;
+	cin >>s;
+	string tmp ="Yes";
 	
+	for (int start = 0; start < 3; start ++) {
+		bool check = true;
+		for (int i =0;i < s.length(); i++) {
+			if (s[i] != tmp[ (start + i) % 3]) {
+					check = false;
+					break;
+			}
+		}
+		if (check) {
+			cout << "YES\n";
+			return;
+		}
+	}
+	cout << "NO\n";
+	return;
 }
 
 int main(){
@@ -124,13 +143,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

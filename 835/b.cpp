@@ -10,7 +10,7 @@
 #define vvll vector<vector<ll>>
 #define vb vector<bool>
 
-using namespace std;
+
 
 /*
 ull power(ll x, ull y) {
@@ -111,10 +111,20 @@ while (!q.empty()) {
 	}
 }
 */
+using namespace std;
 
 
 void solve() {
-	
+	map<char,int>m;
+	int n;
+	cin >> n;
+	string s;
+	cin >> s;
+	int cnt = 0;
+	for (int i =0 ; i < s.length(); i++) {
+		cnt = max(s[i] - 'a', cnt);
+	}
+	cout << cnt + 1 << "\n";
 }
 
 int main(){
@@ -124,13 +134,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

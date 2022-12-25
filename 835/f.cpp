@@ -10,7 +10,7 @@
 #define vvll vector<vector<ll>>
 #define vb vector<bool>
 
-using namespace std;
+
 
 /*
 ull power(ll x, ull y) {
@@ -112,9 +112,50 @@ while (!q.empty()) {
 }
 */
 
+using namespace std;
 
 void solve() {
+	ull n ,c ,d;
+	cin >> n >> c >> d;
+	vector<ull>a(n);
+	vector<ull>pref(n+1, 0);
+	for (int i = 0 ; i < n; i++) {
+		cin >> a[i];
+	}
+	sort(a.begin(), a.end());
+	pref[0] = a[0];
+	for (int i = 1; i <= n ; i++) {
+		pref[i] = pref[i-1] + a[i-1];
+	}
 	
+	if (a[n-1]*d < c) {
+		cout << "Impossible\n";
+		return;
+	}
+	
+	if (n <= d) {
+		if (pref[n] >= c) {
+			cout << "Infinity\n";
+			return;
+		}
+	}
+	else {
+		if (pref[n] - pref[n-d] >= c) {
+			cout << "Infinity\n";
+			return;
+		}
+	}
+	
+	int i = 0;
+	for ( i = 0 ; i < d - 1 && i <= n; i++) {
+		ull rate = pref[n] - pref[n-1-i];
+		ull x = d / (i+1);
+		ull tmp = d % (i+1);
+		tmp = tmp % n;
+		tmp = pref[n] - pref[n-tmp];
+		if ( (ull)rate*x + tmp < c) break;
+	}
+	cout << i << "\n";
 }
 
 int main(){
@@ -124,13 +165,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

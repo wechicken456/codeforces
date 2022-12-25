@@ -10,7 +10,7 @@
 #define vvll vector<vector<ll>>
 #define vb vector<bool>
 
-using namespace std;
+
 
 /*
 ull power(ll x, ull y) {
@@ -113,8 +113,58 @@ while (!q.empty()) {
 */
 
 
+using namespace std;
 void solve() {
+	ull n, h;
+	cin >> n >> h;
+	vector<ull>a(n);
 	
+	for (int i = 0 ;i < n; i++) {
+		cin >> a[i];
+	}
+	
+	sort(a.begin(), a.end());
+	
+	int i = 0;
+	for (; i < n; i++) {
+		if (a[i] < h) {
+			h += (a[i] / 2);
+		}
+		else {
+			break;
+		}
+	}
+	
+	vector<ull> perms = {2,2,3};
+	int maxi = i;
+	ull tmp_h = h;
+	do {
+		vector<ull>tmp = perms;
+		h = tmp_h;
+		int j = i;
+		/*for (int x = 0 ; x < 3 ;x++ ) cout << tmp[x] << " ";
+		cout << "\n";
+		*/
+		for (; j < n ;j++) {
+			if (a[j] < h) {
+				h += (a[j] / 2);
+			}
+			else {
+				if (tmp.size() > 0) {
+					//cout << tmp.back() << "-" << h << "\n";;;
+					h *= tmp.back();
+					j--;
+					tmp.pop_back();
+				}
+				else {
+					break;
+				}
+			}
+		}
+		maxi = max(maxi, j);
+	} while(next_permutation(perms.begin(), perms.end()));
+	
+	cout << maxi << "\n";
 }
 
 int main(){
@@ -124,13 +174,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

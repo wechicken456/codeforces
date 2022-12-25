@@ -123,15 +123,58 @@ int main(){
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 	
-	
-	/*
-	int T;
-	cin >> T;
-	while (T--) {
-		solve();
+	string s;
+	cin >> s;
+	int n = s.length();
+	vector<int>pos(10, -1e5);
+	if (n == 1) {
+		cout << "-1\n";
+		return 0;
 	}
-	*/
 	
+	int pos_second_0 = -1e5;
+	for (int i = 0 ; i < n; i++) {
+		if (s[i] != '0') pos[s[i]-'0'] = i;
+		else {
+			if (pos[0] != -1e5) {
+				pos_second_0 = pos[0];
+			}
+			pos[0] = i;
+		}
+	}
+	int ans = 1e5;
+	
+	string possible[4] = {"25", "50", "75", "00"};
+	for (auto &cur_s : possible) {
+		int first = (cur_s[0] == '0') ? pos_second_0 : pos[cur_s[0] -'0'];
+		int second = pos[cur_s[1] -'0'];
+		int res = 0;
+		string tmp = s;	
+		if (second < 0) continue;
+		for (int i = second + 1; i < n; i++) {
+			if (i == first) first--;
+			swap(tmp[i], tmp[i-1]);
+			res++;
+			second = i;
+		}
+		if (first < 0) continue;
+		for (int i = first + 1; i < n - 1; i++) {
+			swap(tmp[i], tmp[i-1]);
+			res++;
+		}
+		if (tmp[0] == '0') {
+			for (int i = 1; i < first; i++) {
+				if (tmp[i] != '0') {
+					res += i;
+					swap(tmp[i], tmp[0]);
+					break;
+				}
+			}
+			// if there's no other digit that we can swap to create non leading-zero number
+			if (tmp[0] == '0') res = 1e5;
+		}
+		ans = min(ans, res);
+	}
+	if (ans >= 2*n) cout << "-1\n";
+	else cout << ans << "\n";
 }
-
-

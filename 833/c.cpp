@@ -114,7 +114,42 @@ while (!q.empty()) {
 
 
 void solve() {
+	int n;
+	cin >> n;
+	vector<ll>a(n);
+	vector<ll>pos;
+	ll sum = 0;
+	ll ans = 0;
 	
+	for (int i = 0 ;i < n; i++) {
+		cin >> a[i];
+		if (a[i] == 0) {
+			pos.pb(i);
+		}
+	}
+	
+	pos.pb(n);
+
+	if (pos[0] != 0) {
+		sum  = 0;
+		for (int i = 0 ; i < pos[0]; i++) {
+			sum += a[i];
+			ans += (sum == 0);
+		}
+	}
+	for (int x = 0; x < pos.size() - 1; x++) {
+		
+		sum = 0;
+		int max_occ = 0;
+		map<ll, int>m;
+		for (int i = pos[x]; i < pos[x+1]; i++) {
+			sum += a[i];
+			m[sum]++;
+			max_occ = max(max_occ, m[sum]);
+		}
+		ans += max_occ;
+	}
+	cout << ans << "\n";
 }
 
 int main(){
@@ -124,13 +159,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

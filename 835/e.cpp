@@ -114,7 +114,45 @@ while (!q.empty()) {
 
 
 void solve() {
+	int n;
+	cin >> n;
+	vector<int>a(n);
+	for (int i = 0; i < n; i++) cin >> a[i];
+	vector<int>pref_l(n, 0);
+	vector<int>pref_r(n, 0);
+	if (n == 1) {
+		cout << 0 << "\n";
+		return;
+	}
 	
+	for (int i = 1 ;i < n; i++) {
+		pref_l[i] = pref_l[i-1];
+		if (a[i-1] == 0) pref_l[i]++;
+	}
+	
+	for (int i = n - 2; i >= 0 ; i--) {
+		pref_r[i] = pref_r[i+1];
+		if (a[i+1] == 0) pref_r[i]++;
+	}
+	
+	int ans = 0;
+	
+	for (int i = n - 2; i >= 0; i--) {
+		if (a[i] == 1) {
+			ans += pref_r[i];
+		}
+	}
+	
+	int tmp = ans;
+	for (int i = 0; i < n; i++) {
+		if (a[i] == 0) {
+			ans = max(ans, (tmp - (i - pref_l[i])) + pref_r[i] );
+		}
+		else {
+			ans = max(ans, (tmp + (i - pref_l[i])) -  pref_r[i]);
+		}
+	} 
+	cout << ans << "\n";
 }
 
 int main(){
@@ -124,13 +162,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

@@ -10,6 +10,7 @@
 #define vvll vector<vector<ll>>
 #define vb vector<bool>
 
+
 using namespace std;
 
 /*
@@ -114,6 +115,14 @@ while (!q.empty()) {
 
 
 void solve() {
+	ull a,b,d;
+	cin >> a >> b >> d;
+	ull k = 2;
+	//ull x = (k*d) | ab;
+	while ( ((k*d) | a) != ((k*d) | b)) {
+		k++;
+	}
+	cout << (ull)((k*d) | a) << "\n";
 	
 }
 
@@ -124,13 +133,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

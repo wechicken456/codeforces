@@ -114,7 +114,49 @@ while (!q.empty()) {
 
 
 void solve() {
-	
+	int n;
+	cin >> n ;
+	vector<int>a(n);
+	int diff = 0;
+	for (int i = 0;i < n; i++) {
+		cin >> a[i];
+	}
+	if ( n == 1) {
+		cout << "YES\n";
+	}
+	else if (n ==2) {
+		
+		if (a[0] == a[1]) cout << "NO\n";
+		else cout << "YES\n";
+	}
+	else {
+		int cnt = 0;
+		if (a[0] < a[1]) {
+			cnt++;
+		}
+		if (a[n-2] > a[n-1]) {
+			cnt++;
+		}
+		if (cnt == 2) {
+			cout << "NO\n";
+			return;
+		}
+		for (int i = 1; i < n - 1; i++) {
+			if (a[i] < a[i-1]) {
+				int j = i;
+				while (j < n - 1 && a[j] == a[j+1]) j++;
+				if (a[j] < a[j+1]) {
+					cnt++;
+				}
+				i = j;
+			}
+		}
+		if (cnt > 1) {
+			cout << "NO\n";
+			return;
+		}
+		cout << "YES\n";
+	}
 }
 
 int main(){
@@ -124,13 +166,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

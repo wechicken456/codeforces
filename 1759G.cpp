@@ -114,7 +114,48 @@ while (!q.empty()) {
 
 
 void solve() {
+	int n;
+	cin >> n;
+	vector<int>a(n/2);
+	vector<int>b(n/2);
+	vector<int>ans(n + 1 , -1);
+	vector<bool>taken(n + 1, false);
+	for (int i = 0 ; i < n / 2; i++) {
+		cin >> b[i];
+		a[i] = b[i];
+		taken[a[i]] = true;
+	}
 	
+	sort(a.begin(), a.end());
+	
+	for (int i = 0 ; i < n / 2; i++) {
+		if (i > 0) {
+			if (a[i] == a[i-1]) {
+				cout << "-1\n";
+				return;
+			}
+		}
+		if (a[i] / 2 < i + 1) {
+			cout << "-1\n"; 
+			return;
+		}
+	}
+	
+	set<int>unused;
+	for (int i = 1; i <= n;i ++){
+		if (!taken[i]) unused.insert(i);
+	}
+	
+	for (int i = n / 2 - 1; i >= 0 ; i--) {
+		auto tmp = unused.upper_bound(b[i]);
+		tmp--;
+		ans[b[i]] = *tmp;
+		unused.erase(tmp);
+	}
+	for (int i = 0; i < n / 2;i ++) {
+		cout << ans[b[i]] << " " << b[i] << " ";
+	}
+	cout << "\n";
 }
 
 int main(){
@@ -124,13 +165,13 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
+	
 	int T;
 	cin >> T;
 	while (T--) {
 		solve();
 	}
-	*/
+	
 	
 }
 

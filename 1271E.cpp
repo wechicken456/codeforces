@@ -124,14 +124,106 @@ int main(){
 	cin.tie(0);
 	
 	
-	/*
-	int T;
-	cin >> T;
-	while (T--) {
-		solve();
+	ull n, k;
+	cin >> n >> k;
+	if (n == k) {
+		cout << 1 << "\n";
+		return 0;
 	}
-	*/
+	ull i = n;
 	
+	/*
+	The idea is to divide numbers from 1 to n into log2(n) segments.  
+	This is because every even number, except the last 2 numbers in each segment, has the same number of paths. The same for odd numbers.
+	After this, we only have to account for the last 2 numbers.
+	
+	*/
+	vector<vector<ull>>segments;	
+	vector<ull>tmp(4);		// tmp[0] = nums of path of even numbers. tmp[1] = nums of paths of odd numbers. tmp[2] = nums of paths of the last number. tmp[3] = nums of paths of the second last number.
+	vector<int>parity;		// 1 if the last number in the segment is odd
+	if (i % 2 == 1) {
+		tmp = {2, 1 , 1, 2};
+		parity.pb(1);
+	}
+	else {
+		tmp = {2, 1, 1, 1};
+		parity.pb(0);
+	}
+	segments.pb(tmp);
+	i /= 2;
+	while (i > 0) {
+		tmp = vector<ull>(4);
+		if (i % 2 == 0) {
+			tmp[1] = segments.back()[0] + 1;
+			tmp[0] = segments.back()[0] + tmp[1] + 1;
+			if (parity.back() == 0) tmp[2] = segments.back()[2] + segments.back()[1] + 1;
+			else tmp[2] = segments.back()[3] + segments.back()[1] + 1;
+			tmp[3] = tmp[1];
+			parity.pb(0);
+		}
+		else {
+			tmp[1] = segments.back()[0] + 1;
+			tmp[0] = segments.back()[0] + tmp[1] + 1;
+			if (parity.back() == 1) tmp[2] = segments.back()[3] + 1;
+			else tmp[2] = segments.back()[2] + 1;
+			tmp[3] = segments.back()[0] + tmp[2] + 1;
+			parity.pb(1);
+		}
+		segments.pb(tmp);
+		i /= 2;
+	}
+	
+	i = 0;
+	for (; i < segments.size(); i++) {
+		if (k <= segments[i][2]) {
+			for (int j = 1; j <= i; j++) {
+				n /= 2;
+			}
+			cout << n << "\n";
+			break;
+		}
+		else if (k <= segments[i][3]) {
+			for (int j = 1; j <= i; j++) {
+				n /= 2;
+			}
+			cout << n - 1 << "\n";
+			break;
+		}
+		else {
+			if (parity[i] == 0) {
+				if (k <= segments[i][0]) {
+					for (int j = 1; j <= i; j++) {
+						n /= 2;
+					}
+					cout << n - 2 << "\n";
+					break;
+				}
+				else if (k <= segments[i][1]) {
+					for (int j = 1; j <= i; j++) {
+						n /= 2;
+					}
+					cout << n - 3 << "\n";
+					break;
+				}
+			}
+			else {
+				if (k <= segments[i][1]) {
+					for (int j = 1; j <= i; j++) {
+						n /= 2;
+					}
+					cout << n - 2 << "\n";
+					break;
+				}
+				else if (k <= segments[i][0]) {
+					for (int j = 1; j <= i; j++) {
+						n /= 2;
+					}
+					cout << n - 3 << "\n";
+					break;
+				}
+			}
+		}
+	}
 }
 
 
